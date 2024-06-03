@@ -1,0 +1,31 @@
+* {
+    border: red 1px solid;
+    margin: 10px;
+}
+
+html {
+    border: none;
+}
+
+ul {
+    padding: 0px;
+        list-style-type: none;
+        margin: 0;
+        overflow: hidden;
+        background-color: black;
+}
+
+
+li {
+    display: block;
+margin-top: auto;
+margin-bottom: auto;
+    color: white;
+    float: right;
+    
+}
+
+#logo img {
+    height: 5vh;
+    margin-left: 5vw;
+}
