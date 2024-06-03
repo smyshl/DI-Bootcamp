@@ -15,17 +15,26 @@ ul {
         background-color: black;
 }
 
-
 li {
+    float: right;
+}
+
+li p{
     display: block;
 margin-top: auto;
 margin-bottom: auto;
     color: white;
-    float: right;
-    
+    font-family: Roboto;
+    font-size: 3vh;
+    padding: 2vh 2vw 2vh 2vw;
+}
+
+li p:hover {
+background-color: #5f2020;
 }
 
 #logo img {
     height: 5vh;
     margin-left: 5vw;
+    margin-top: 1vh;
 }
