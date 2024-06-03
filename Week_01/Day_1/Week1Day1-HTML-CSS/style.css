@@ -1,0 +1,105 @@
+/* custom css */
+:root {
+  --main-bg-color: rgb(180, 192, 14);
+  --main-text-color: #333333;
+  --main-font-size: 16px;
+}
+
+.header-container {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-size: var(--main-font-size);
+}
+
+
+h1 {
+  color: green;
+}
+
+/* tag element */
+p {
+  color: blue;
+}
+div {
+  margin: 20px;
+}
+body,
+html,
+p {
+  margin: 0;
+  padding: 0;
+}
+/* id selector */
+#container,
+#container2,
+#container3 {
+  width: 800px;
+  margin: 0 auto;
+  background-color: yellow;
+}
+
+/*calss selector*/
+.h1 {
+  color: cyan;
+}
+
+.header-one {
+  font-size: 42px;
+}
+.header-one-bg {
+  background-color: lightcoral;
+}
+
+div.container .innerdiv {
+  background-color: lightblue;
+}
+
+/* attribute selector */
+p[id="para"] {
+  color: red;
+}
+input[type="text"] {
+  width: 200px;
+}
+
+/* pseudo-class */
+a:link {
+  color: red;
+}
+a:visited {
+  color: green;
+}
+a:hover {
+  color: blue;
+}
+a:active {
+  color: yellow;
+}
+/* :first-child */
+.ul-first-child li:last-child {
+  color: red;
+}
+html {
+  font-size: 4rem;
+}
+/* relative unit  */
+.pixel-22 {
+  font-size: 22px;
+}
+.em-2 {
+  font-size: 2em;
+}
+.em-3 {
+  font-size: 3em;
+}
+.rem-2 {
+  font-size: 2rem;
+}
+
+/* viewport unit */
+.vh-50 {
+  height: 50vh;
+}
+.vw-50 {
+  width: 100vw;
+}
