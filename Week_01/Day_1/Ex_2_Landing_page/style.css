@@ -27,14 +27,17 @@ form {
 }
 
 #section_2 {
-    height: 100px;
+    height: 25vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     }
 
-#section_2 p {
- width: 15vw;
+#section_2 div {
+ width: 18vw;
+ margin-top: 7vh;
 }
+
+
 
 button {
     background-color: #008CBA;
@@ -72,7 +75,10 @@ nav p {
     margin-left: 15vw;
 }
 
-
+div p {
+    font-size: 10px;
+    color: gray;
+}
 
 
 body, html {
