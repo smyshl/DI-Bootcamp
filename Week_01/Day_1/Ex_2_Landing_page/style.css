@@ -1,6 +1,6 @@
 * {
-    border: red 1px solid;
-    /* background-color: aqua; */
+    /* border: red 1px solid;
+    background-color: aqua; */
     margin: 1vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -27,17 +27,25 @@ form {
 }
 
 #section_2 {
-    height: 25vh;
+    height: 20vh;
     display: flex;
     justify-content: center;
-    }
-
-#section_2 div {
- width: 18vw;
- margin-top: 7vh;
 }
 
+#section_2 div {
+    width: 20vw;
+    /* margin-top: 7vh; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content:flex-start;
+}
 
+#section_2 #center_div {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    width: 23vw;
+}
 
 button {
     background-color: #008CBA;
@@ -54,7 +62,7 @@ input {
 }
 
 nav {
-    text-align:center;
+    text-align: center;
     vertical-align: middle;
     height: 3.5vh;
     font-size: 12px;
@@ -78,9 +86,19 @@ nav p {
 div p {
     font-size: 10px;
     color: gray;
+    display: flex;
 }
 
 
-body, html {
+body,
+html {
     border: none;
+}
+
+i {
+margin-top: 5vh;
+}
+
+h5{
+    margin-top: 3vh;
 }
