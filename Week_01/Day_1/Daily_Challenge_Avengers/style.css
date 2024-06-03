@@ -1,11 +1,19 @@
 * {
-    border: red 1px solid;
-    margin: 10px;
+    /* border: red 1px solid; */
+    /* margin: 10px; */
 }
 
 html {
     border: none;
 }
+
+body {
+    background-image: url(background_image.jpg);
+    background-size: 100vw auto; 
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
 
 ul {
     padding: 0px;
@@ -25,7 +33,7 @@ margin-top: auto;
 margin-bottom: auto;
     color: white;
     font-family: Roboto;
-    font-size: 3vh;
+    font-size: 1.5vw;
     padding: 2vh 2vw 2vh 2vw;
 }
 
@@ -37,4 +45,22 @@ background-color: #5f2020;
     height: 5vh;
     margin-left: 5vw;
     margin-top: 1vh;
+}
+
+section {
+    font-family: "Archivo Black";
+    font-size: 6vw;
+    text-transform: uppercase;
+    padding-left: 1vw;
+margin: auto;
+padding-top: 19vw;
+}
+
+article p {
+    font-family: Roboto;
+    font-size: 0.3 vw;
+    color: white;
+    text-align: justify;
+    margin: 0;
+    padding: 8vw 1vw 1vw 1vw;
 }
