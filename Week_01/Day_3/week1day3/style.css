@@ -1,0 +1,78 @@
+body {
+  font-size: 16px;
+  background-color: #000;
+  color: red;
+}
+
+header,
+footer {
+  background-color: lightblue;
+  padding: 10px;
+  margin: 10px;
+}
+main {
+  background-color: lightgreen;
+  padding: 10px;
+  margin: 10px;
+  border: 5px solid pink;
+}
+
+/* media query
+min-width: 600px
+max-width: 500px
+*/
+
+@media only screen and (min-width: 1000px) {
+  body {
+    background-color: lightblue;
+  }
+  header,
+  footer {
+    background-color: lightgreen;
+  }
+}
+@media (min-width: 600px) and (max-width: 1000px) {
+  body {
+    background-color: lightgreen;
+  }
+  header,
+  footer {
+    background-color: lightblue;
+  }
+}
+@media (max-width: 500px) {
+  body {
+    background-color: lightcoral;
+  }
+  header,
+  footer {
+    background-color: lightyellow;
+  }
+}
+@media only screen and (max-width: 350px) {
+  body {
+    background-color: red;
+  }
+  header,
+  footer {
+    background-color: lightyellow;
+  }
+}
+/*
+all
+screen
+print
+speech
+tv
+projection
+braille
+*/
+@media print {
+  body,
+  header,
+  footer,
+  main {
+    background-color: white;
+    color: black;
+  }
+}

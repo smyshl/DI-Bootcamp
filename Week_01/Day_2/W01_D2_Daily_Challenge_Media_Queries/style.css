@@ -1,0 +1,127 @@
+* {
+    /* border: red 1px solid; */
+    /* margin: 10px; */
+}
+
+
+html {
+    border: none;
+}
+
+body {
+    background-image: url(background_image.jpg);
+    background-size: 100vw auto;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+
+ul {
+    padding: 0px;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+li {
+    float: right;
+}
+
+li p {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    font-family: Roboto;
+    font-size: 1.5vw;
+    padding: 2vh 2vw 2vh 2vw;
+}
+
+li p:hover {
+    background-color: #5f2020;
+}
+
+#logo img {
+    height: 5vh;
+    margin-left: 5vw;
+    margin-top: 1vh;
+}
+
+section {
+    font-family: "Archivo Black";
+    font-size: 6vw;
+    text-transform: uppercase;
+    padding-left: 1vw;
+    margin: auto;
+    padding-top: 19vw;
+}
+
+article p {
+    font-family: Roboto;
+    font-size: 0.3 vw;
+    color: white;
+    text-align: justify;
+    margin: 0;
+    padding: 8vw 1vw 1vw 1vw;
+}
+
+/* media query for small devices */
+@media (min-width: 600px) {
+    section {
+        font-size: 35px;
+    }
+    ul {
+        background-color: yellow;
+    }
+    li p {
+        color: black;
+    }
+}
+
+/* media query for medium devices */
+@media (min-width: 768px) {
+    section {
+        font-size: 25px;
+    }
+    ul {
+        background-color: lightgreen;
+    }
+    li p {
+        color: black;
+    }
+}
+
+/* media query for large devices */
+@media (min-width: 992px) {
+    ul {
+        background-color: red;
+    }
+    li p {
+        color: white;
+    }
+}
+
+/* media query for extra large devices */
+@media (min-width: 1200px) {
+    ul {
+        background-color: black;
+    }
+    li p {
+        color: white;
+    }
+    #wrapper {
+        display: flex;
+        article p, section {
+            margin: 0;
+        padding-top: 0;
+        width: 80vw;
+        margin-top: 55vh
+        }
+    ;
+        align-items: center;
+        align-content: flex-end;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+}
