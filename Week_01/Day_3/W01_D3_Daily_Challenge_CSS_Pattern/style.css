@@ -1,0 +1,35 @@
+div {
+    border: 2px black solid;
+    margin: 10px;
+    padding: 15px;
+
+.inner {
+    background-color: yellow;
+    height: 15px;
+    width: 15px;
+}
+
+.outer.col {
+    background-color: plum;
+}
+
+.outer.row {
+    background-color: paleturquoise;
+    display: flex;
+    height: 80px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.inner.row {
+    height: 15px;
+    width: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+}
+#wrapper {
+    display: flex;
+    justify-content: center;
+}
