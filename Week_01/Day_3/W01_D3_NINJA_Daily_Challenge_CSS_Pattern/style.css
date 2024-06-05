@@ -1,0 +1,38 @@
+.base_wrapper{
+    /* height: 115px;
+    width: 115px; */
+    border: black 1px solid;
+    display: grid;
+    padding: 60px;
+    grid-gap: 5px;
+    grid-template-areas: 
+    "first second third"
+    "first second third"
+    ;
+}
+
+
+
+
+.base_element_1{
+    grid-area: first;
+    padding: 18px;
+    /* height: 35px;
+    width: 35px; */
+    background-color: pink;
+}
+.base_element_2{
+    grid-area: second;
+    padding: 18px;
+    /* height: 35px;
+    width: 35px; */
+    background-color: palevioletred;
+}
+.base_element_3{
+    grid-area: third;
+    padding: 18px;
+    /* height: 35px;
+    width: 35px; */
+    background-color:peru;
+}
+

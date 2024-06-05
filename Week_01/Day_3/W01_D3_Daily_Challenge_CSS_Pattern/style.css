@@ -15,21 +15,49 @@ div {
 
 .outer.row {
     background-color: paleturquoise;
-    display: flex;
-    height: 80px;
-    margin-top: auto;
-    margin-bottom: auto;
-}
 
-.inner.row {
-    height: 15px;
-    width: 15px;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
 }
 #wrapper {
     display: flex;
     justify-content: center;
+}
+
+@media (min-width: 768px) {
+
+    .outer.row {
+        display: flex;
+        height: 80px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .inner.row {
+        height: 15px;
+        width: 15px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+@media (min-height: 600px) {
+
+    #wrapper {
+        flex-direction: column;
+    }
+    .outer {
+        display: flex;
+        height: 80px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .outer div {
+        height: 15px;
+        width: 15px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
 }

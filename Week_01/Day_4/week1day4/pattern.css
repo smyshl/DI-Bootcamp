@@ -1,0 +1,66 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  width: 440px;
+  height: 440px;
+  border: 1px solid #ccc;
+  grid-gap: 5px;
+}
+
+.container div {
+  width: 20px;
+  height: 20px;
+}
+
+/* .container div:nth-child(3n + 1) {
+  background-color: #ff7100;
+}
+
+.container div:nth-child(3n + 2) {
+  background-color: #ffb173;
+}
+.container div:nth-child(3n + 3) {
+  background-color: #a64a00;
+} */
+
+/* .container div:nth-child(4n + 1) {
+  background-color: #ccc;
+}
+.container div:nth-child(4n + 2) {
+  background-color: #999;
+}
+.container div:nth-child(4n + 3) {
+  background-color: #666;
+}
+
+.container div:nth-child(4n + 4) {
+  background-color: #333;
+} */
+.container div:nth-child(7n + 1) {
+  background-color: red;
+}
+.container div:nth-child(7n + 2) {
+  background-color: orange;
+}
+.container div:nth-child(7n + 3) {
+  background-color: yellow;
+}
+.container div:nth-child(7n + 4) {
+  background-color: green;
+}
+.container div:nth-child(7n + 5) {
+  background: blue;
+}
+.container div:nth-child(7n + 6) {
+  background: indigo;
+}
+.container div:nth-child(7n + 7) {
+  background: violet;
+}
