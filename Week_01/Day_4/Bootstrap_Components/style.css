@@ -33,7 +33,19 @@ form button {
 .jumbotron {
     padding-left: 4rem;
     padding-top: 1.5rem;
-    /* h1 {
-        font-weight: bold;
-    }
+}
+
+/* .cards_wrapper {
+    border: red 1px solid;
+} */
+
+/* .btn {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+} */
+
+/* .cards_wrapper {
+    display: inline-block;
+
 } */
