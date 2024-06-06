@@ -45,7 +45,17 @@ form button {
     margin-bottom: auto;
 } */
 
-/* .cards_wrapper {
-    display: inline-block;
+.cards_wrapper {
+    /* border: 1px red solid; */
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-} */
+.card {
+/* border: 1px red solid; */
+width: 30%;
+border: none;
+margin-right: 1rem;
+}
