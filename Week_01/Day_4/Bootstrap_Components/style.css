@@ -6,3 +6,21 @@ a {
     color: darkgrey !important;
 
 }
+
+a:hover {
+    background-color: rgba(0, 0, 0, 0.375) !important;
+}
+
+a:active {
+    color: white !important;
+}
+
+input {
+margin-right: 0.2rem;
+color:grey !important;
+}
+
+form button {
+    margin-right: 1rem;
+    width: 8rem;
+}
