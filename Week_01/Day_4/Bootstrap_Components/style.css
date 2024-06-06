@@ -24,3 +24,16 @@ form button {
     margin-right: 1rem;
     width: 8rem;
 }
+
+#contact_link {
+    padding-right: 1rem;
+    margin-right: 1rem;
+}
+
+.jumbotron {
+    padding-left: 4rem;
+    padding-top: 1.5rem;
+    /* h1 {
+        font-weight: bold;
+    }
+} */
