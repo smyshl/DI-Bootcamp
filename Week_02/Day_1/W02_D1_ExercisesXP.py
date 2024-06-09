@@ -63,7 +63,7 @@ else:
 # Exercise 7 : Odd or Even
 #     Write code that asks the user for a number and determines whether this number is odd or even.
 
-input_number = int(input("Input integer number: "))
+input_number = int(input("Please enter integer number: "))
 if input_number % 2 == 0:
     print(input_number, "- even number")
 else:
@@ -71,5 +71,24 @@ else:
 
 
 # Exercise 8 : What’s your name ?
-#     Write code that asks the user for their name and determines whether or not you have the same name, print out a funny message based on the outcome.
+#     Write code that asks the user for their name and determines whether or not you have the same name, 
+#        print out a funny message based on the outcome.
 
+name_i_have = "Donald"
+user_name = input("\nPlease enter your name: ")
+if user_name.capitalize() == name_i_have:
+    print(f"Hi, {user_name}, I've been waiting for you so long!\n")
+else:
+    print(f"Hi, {user_name}, nice to meet you!\nBut I'm waiting for {name_i_have}\n")
+
+
+# Exercise 9 : Tall enough to ride a roller coaster
+#     Write code that will ask the user for their height in centimeters.
+#     If they are over 145cm print a message that states they are tall enough to ride.
+#     If they are not tall enough print a message that says they need to grow some more to ride.
+
+users_height = float(input("\nPlease enter your height in centimeters: "))
+if users_height > 145:
+    print("Congrats, you can ride!\n")
+else:
+    print(f"Sorry, your tall is not enough to ride\nCome again after you grow {round((145.1 - users_height), 1)} more centimeters\n")
