@@ -29,3 +29,47 @@ print(99**3*8)
 
 computer_brand = "Honor"
 print(f"I have a {computer_brand} computer")
+
+
+# Exercise 5 : Your information
+#     Create a variable called name, and set it’s value to your name.
+#     Create a variable called age, and set it’s value to your age.
+#     Create a variable called shoe_size, and set it’s value to your shoe size.
+#     Create a variable called info and set it’s value to an interesting sentence about yourself.
+#                        The sentence must contain all the variables created in parts 1, 2 and 3.
+#     Have your code print the info message.
+#     Run your code
+
+my_name = "Eugene"
+my_age = 46
+my_shoe_size = 43
+info = f"\nMy name is {my_name}\nMy age is {my_age}\nMy shoe size is {my_shoe_size} and I need a new sneakers"
+print(info)
+
+
+# Exercise 6 : A & B
+#     Create two variables, a and b.
+#     Each variable value should be a number.
+#     If a is bigger then b, have your code print Hello World.
+
+a_number = 3
+b_number = 7
+if a_number > b_number:
+    print("\nHello World\n")
+else:
+    print("\nGood buy World\n")
+
+
+# Exercise 7 : Odd or Even
+#     Write code that asks the user for a number and determines whether this number is odd or even.
+
+input_number = int(input("Input integer number: "))
+if input_number % 2 == 0:
+    print(input_number, "- even number")
+else:
+    print(input_number, "- odd number")
+
+
+# Exercise 8 : What’s your name ?
+#     Write code that asks the user for their name and determines whether or not you have the same name, print out a funny message based on the outcome.
+
