@@ -53,6 +53,8 @@ float_item = 1.5
 while float_item <= 5:
     list_of_floats.append(float_item)
     float_item += 0.5
+    if int(float_item) == float_item:
+        float_item = int(float_item)
 
 print(list_of_floats)
 
@@ -73,7 +75,7 @@ for i in range(1, 20+1):
 
 # If indexes start from 0, then:
 
-print("\nElements with even indexes (if indexes start from 0): ")
+print("\nElements with even indexes (if indexes start from 0): ", end='')
 
 for i in range(1, 20+1):
     if (i - 1) % 2 == 0:
@@ -99,4 +101,97 @@ while my_name != input_name.capitalize():
     if loops_counter > 10:
         print("Too much attempts")
         break
+
+
+# Exercise 7: Favorite fruits
+
+#     Ask the user to input their favorite fruit(s) (one or several fruits).
+#     Hint : Use the built in input method. Ask the user to separate the fruits with a single space, eg. "apple mango cherry".
+#     Store the favorite fruit(s) in a list (convert the string of words into a list of words).
+#     Now that we have a list of fruits, ask the user to input a name of any fruit.
+#         If the user’s input is in the favorite fruits list, print “You chose one of your favorite fruits! Enjoy!”.
+#         If the user’s input is NOT in the list, print, “You chose a new fruit. I hope you enjoy”.
+
+
+list_of_fav_fruits = list(input("Please input your favorite fruit(s) separated with a space: ").split(" "))
+another_fruit = input("Please input a name of any fruit: ")
+
+if another_fruit in list_of_fav_fruits:
+    print("You chose one of your favorite fruits! Enjoy!")
+else:
+    print("You chose a new fruit. I hope you enjoy")
+
+
+# Exercise 8: Who ordered a pizza ?
+
+#     Write a loop that asks a user to enter a series of pizza toppings, when the user inputs ‘quit’ stop asking for toppings.
+#     As they enter each topping, print a message saying you’ll add that topping to their pizza.
+#     Upon exiting the loop print all the toppings on the pizza pie and what the total price is (10 + 2.5 for each topping).
+
+
+toppings_list = []
+input_topping = ""
+loops_counter = 0
+
+while input_topping.upper() != "QUIT":
+    input_topping = input(f"Please enter a name of topping or 'quit' for exit ({10 - loops_counter} left): ")
+    
+    if input_topping.upper() != "QUIT":
+        toppings_list.append(input_topping)
+        loops_counter += 1
+    else:
+        print("Toppings for your pizza: ", end='')
+        print(*toppings_list, sep=", ")
+        print("Total price: ", 10 + 2.5 * len(toppings_list))
+
+    if loops_counter > 10:
+        print("Too much toppings, not more than 10")
+        break
+
+
+# Exercise 9: Cinemax
+
+#     A movie theater charges different ticket prices depending on a person’s age.
+#         if a person is under the age of 3, the ticket is free.
+#         if they are between 3 and 12, the ticket is $10.
+#         if they are over the age of 12, the ticket is $15.
+
+#     Ask a family the age of each person who wants a ticket.
+
+#     Store the total cost of all the family’s tickets and print it out.
+
+#     A group of teenagers are coming to your movie theater and want to watch a movie that is restricted for people between the ages of 16 and 21.
+#     Given a list of names, write a program that asks teenager for their age, if they are not permitted to watch the movie, remove them from the list.
+#     At the end, print the final list.
+
+# Family tickets
+
+ages_list = list(input("Please input the age of each person who wants a ticket separated by space: ").split(','))
+total_price = 0
+for age in ages_list:
+    if int(age) >= 12:
+        total_price += 15
+    elif 3 <= int(age) < 12:
+        total_price += 10
+
+print("The total price for your tickets is: ", total_price, "$")
+
+# Teenagers control
+
+names_list = list(input("Please input the names of each person who wants to watch a movie separated with space: ").split(' '))
+names_who_may_watch = []
+
+for name in names_list:
+    age = int(input(f"{name}, please enter your age: "))
+    if age < 16 or age > 21:
+        print(f"Sorry {name}, you are too young/old to watch this movie")
+    else:
+        print(f"Congrats {name}, you may watch this movie")
+        names_who_may_watch.append(name)
+
+print("Who whanted to watch a movie: ", end='')
+print(*names_list, sep=", ")
+print("Who allowed to watch a movie: ", end='')
+print(*names_who_may_watch, sep=", ")
+
 
