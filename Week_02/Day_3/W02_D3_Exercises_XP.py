@@ -11,10 +11,12 @@
 
 print("--------------------Exercise 1----------------------")
 
-# keys = ['Ten', 'Twenty', 'Thirty']
-# values = [10, 20, 30]
+keys = ['Ten', 'Twenty', 'Thirty']
+values = [10, 20, 30]
 
-# print(dict(zip(keys, values)))
+print(dict(zip(keys, values)))
+
+input("Please press enter to go to the next exercise")
 
 
 # Exercise 2 : Cinemax #2
@@ -32,25 +34,26 @@ print("--------------------Exercise 1----------------------")
 #     Bonus: Ask the user to input the names and ages instead of using the provided family variable (Hint: ask the user for names and ages and add them into a family dictionary that is initially empty).
 print("--------------------Exercise 2----------------------")
 
-# def total_tickets_cost(dict):
-#     family_total_cost = 0
-#     for name, age in dict.items():
-#         if age > 12:
-#             family_total_cost += 15
-#             print(name, "have to pay 15$")
-#         elif 3 <= age <= 12:
-#             family_total_cost += 10
-#             print(name, "have to pay 10$")
-#     return family_total_cost
+def total_tickets_cost(dict):
+    family_total_cost = 0
+    for name, age in dict.items():
+        if age > 12:
+            family_total_cost += 15
+            print(name, "have to pay 15$")
+        elif 3 <= age <= 12:
+            family_total_cost += 10
+            print(name, "have to pay 10$")
+    return family_total_cost
 
-# family = {"rick": 43, 'beth': 13, 'morty': 5, 'summer': 8}
-# print("Total family cost:", total_tickets_cost(family), "$\n")
+family = {"rick": 43, 'beth': 13, 'morty': 5, 'summer': 8}
+print("Total family cost:", total_tickets_cost(family), "$\n")
 
-# new_family_list = list(input("Please enter names and ages one by one separated with space\n(for example: rick 43 beth 13 morty 5 summer 8): ").split(' '))
-# new_family = {new_family_list[i]: int(new_family_list[i + 1]) for i in range(0, len(new_family_list) - 1, 2)}
+new_family_list = list(input("Please enter names and ages one by one separated with space\n(for example: rick 43 beth 13 morty 5 summer 8): ").split(' '))
+new_family = {new_family_list[i]: int(new_family_list[i + 1]) for i in range(0, len(new_family_list) - 1, 2)}
 
-# print("New family total cost:", total_tickets_cost(new_family), "$\n")
+print("New family total cost:", total_tickets_cost(new_family), "$\n")
 
+input("Please press enter to go to the next exercise")
 
 # Exercise 3: Zara
 
@@ -114,4 +117,47 @@ print("Keys of the dictionary brand:", (', ').join(brand.keys()))
 
 more_on_zara = {"creation_date": 1975, "number_stores": 10000}
 
-print(brand)
+brand |= more_on_zara
+print("Number of stores:", brand["number_stores"]) # Number of stores in dict brand was updated with value from dict more_on_Zara
+
+input("Please press enter to go to the next exercise")
+
+# Exercise 4 : Disney characters
+
+# Use this list :
+
+# users = ["Mickey","Minnie","Donald","Ariel","Pluto"]
+
+# Analyse these results :
+# #1/
+# >>> print(disney_users_A)
+# {"Mickey": 0, "Minnie": 1, "Donald": 2, "Ariel": 3, "Pluto": 4}
+# #2/
+# >>> print(disney_users_B)
+# {0: "Mickey",1: "Minnie", 2: "Donald", 3: "Ariel", 4: "Pluto"}
+# #3/ 
+# >>> print(disney_users_C)
+# {"Ariel": 0, "Donald": 1, "Mickey": 2, "Minnie": 3, "Pluto": 4}
+
+#     Use a for loop to recreate the 1st result. Tip : don’t hardcode the numbers.
+#     Use a for loop to recreate the 2nd result. Tip : don’t hardcode the numbers.
+#     Use a method to recreate the 3rd result. Hint: The 3rd result is sorted alphabetically.
+#     Only recreate the 1st result for:
+#         The characters, which names contain the letter “i”.
+#         The characters, which names start with the letter “m” or “p”.
+print("--------------------Exercise 4----------------------")
+
+users = ["Mickey","Minnie","Donald","Ariel","Pluto"]
+
+disney_users_A = {users[i]: i for i in range(len(users))}
+print(disney_users_A)
+
+disney_users_B = {i:users[i] for i in range(len(users))}
+print(disney_users_B)
+
+users.sort()
+disney_users_C = dict(zip(users, list(range(len(users)))))
+print(disney_users_C)
+
+disney_users_A = {users[i]: i for i in range(len(users)) if "i" in users[i] or "m" == users[i][0] or "p" == users[i][0]}
+print(disney_users_A)
