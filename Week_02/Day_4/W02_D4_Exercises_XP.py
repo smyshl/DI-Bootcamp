@@ -78,8 +78,103 @@ randomize(53)
 
 print("--------------------Exercise 5----------------------")
 
-
-def make_shirt(size=L, text="I love Python"):
+def make_shirt(size="L", text="I love Python"):
      print(f"The size of the shirt is {size} and the text is '{text}'")
 
-make_shirt(52, "fuck putin")
+make_shirt(52, "weoiruworieuw")
+make_shirt()
+make_shirt("M")
+make_shirt("XL", "I love Israel")
+make_shirt(text="I like coding", size="S")
+
+
+# Exercise 6 : Magicians …
+
+# Using this list of magician’s names
+# magician_names = ['Harry Houdini', 'David Blaine', 'Criss Angel']
+#     Create a function called show_magicians(), which prints the name of each magician in the list.
+#     Write a function called make_great() that modifies the original list of magicians by adding the phrase "the Great" to each magician’s name.
+#     Call the function make_great().
+#     Call the function show_magicians() to see that the list has actually been modified.
+
+print("--------------------Exercise 6----------------------")
+
+def show_magicians(list_of_magicians):
+    magician_names = [mag.split(' ')[0] for mag in list_of_magicians]
+    print("Names of magicians:", ', '.join(magician_names))
+
+def make_great(list_of_magicians):
+    for i in range(len(list_of_magicians)):
+        list_of_magicians[i] = "the Great " + list_of_magicians[i]
+
+    return list_of_magicians
+
+
+magician_names = ['Harry Houdini', 'David Blaine', 'Criss Angel']
+
+show_magicians(magician_names)
+print("Magicians was made great:", ', '.join(make_great(magician_names)))
+show_magicians(magician_names)
+
+
+# Exercise 7 : Temperature Advice
+#     Create a function called get_random_temp().
+#         This function should return an integer between -10 and 40 degrees (Celsius), selected at random.
+#         Test your function to make sure it generates expected results.
+#     Create a function called main().
+#         Inside this function, call get_random_temp() to get a temperature, and store its value in a variable.
+#         Inform the user of the temperature in a friendly message, eg. “The temperature right now is 32 degrees Celsius.”
+#     Let’s add more functionality to the main() function. Write some friendly advice relating to the temperature:
+#         below zero (eg. “Brrr, that’s freezing! Wear some extra layers today”)
+#         between zero and 16 (eg. “Quite chilly! Don’t forget your coat”)
+#         between 16 and 23
+#         between 24 and 32
+#         between 32 and 40
+#     Change the get_random_temp() function:
+#         Add a parameter to the function, named ‘season’.
+#         Inside the function, instead of simply generating a random number between -10 and 40, set lower and upper limits based on the season, eg. if season is ‘winter’, temperatures should only fall between -10 and 16.
+#         Now that we’ve changed get_random_temp(), let’s change the main() function:
+#             Before calling get_random_temp(), we will need to decide on a season, so that we can call the function correctly. Ask the user to type in a season - ‘summer’, ‘autumn’ (you can use ‘fall’ if you prefer), ‘winter’, or ‘spring’.
+#             Use the season as an argument when calling get_random_temp().
+#     Bonus: Give the temperature as a floating-point number instead of an integer.
+#     Bonus: Instead of asking for the season, ask the user for the number of the month (1 = January, 12 = December). Determine the season according to the month.
+
+print("--------------------Exercise 7----------------------")
+
+def get_random_temp(season="spring"):
+    if season == "winter":
+        temp = random.uniform(-10, 15)
+    elif season == "spring" or season == "autumn":
+        temp = random.uniform(16, 23)    
+    elif season == "summer":
+        temp = random.uniform(24, 40)            
+    return temp
+
+def main():
+    month = int(input("Please enter the number of the month (1 = January, 12 = December): "))
+
+    if month == 12 or month == 1 or month == 2:
+        season = "winter"
+    elif month == 3 or month == 4 or month == 5:
+        season = "spring"
+    elif month == 6 or month == 7 or month == 8:
+        season = "summer"
+    else:
+        season = "autumn"
+
+    temp = get_random_temp(season)
+    print(f"The temperature right now is {round(temp, 1)} degrees Celsius")
+    if temp < 0:
+        print("Brrr, that’s freezing! Wear some extra layers today")
+    elif temp <= 16:
+        print("Quite chilly! Don't forget your coat")
+    elif temp <= 23:
+        print("The summer is coming or already has gone")
+    elif 24 <= temp <= 32:
+        print("Yeaah, it's summer!")
+    elif 32 < temp <= 40:
+        print("It's not a summer, it's hell!")
+
+main()
+
+
