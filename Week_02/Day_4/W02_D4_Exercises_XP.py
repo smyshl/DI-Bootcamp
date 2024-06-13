@@ -141,41 +141,41 @@ show_magicians(magician_names)
 
 print("--------------------Exercise 7----------------------")
 
-# def get_random_temp(season="spring"):
-#     if season == "winter":
-#         temp = random.uniform(-10, 15)
-#     elif season == "spring" or season == "autumn":
-#         temp = random.uniform(16, 23)    
-#     elif season == "summer":
-#         temp = random.uniform(24, 40)            
-#     return temp
+def get_random_temp(season="spring"):
+    if season == "winter":
+        temp = random.uniform(-10, 15)
+    elif season == "spring" or season == "autumn":
+        temp = random.uniform(16, 23)    
+    elif season == "summer":
+        temp = random.uniform(24, 40)            
+    return temp
 
-# def main():
-#     month = int(input("Please enter the number of the month (1 = January, 12 = December): "))
+def main():
+    month = int(input("Please enter the number of the month (1 = January, 12 = December): "))
 
-#     if month == 12 or month == 1 or month == 2:
-#         season = "winter"
-#     elif month == 3 or month == 4 or month == 5:
-#         season = "spring"
-#     elif month == 6 or month == 7 or month == 8:
-#         season = "summer"
-#     else:
-#         season = "autumn"
+    if month == 12 or month == 1 or month == 2:
+        season = "winter"
+    elif month == 3 or month == 4 or month == 5:
+        season = "spring"
+    elif month == 6 or month == 7 or month == 8:
+        season = "summer"
+    else:
+        season = "autumn"
 
-#     temp = get_random_temp(season)
-#     print(f"The temperature right now is {round(temp, 1)} degrees Celsius")
-#     if temp < 0:
-#         print("Brrr, that’s freezing! Wear some extra layers today")
-#     elif temp <= 16:
-#         print("Quite chilly! Don't forget your coat")
-#     elif temp <= 23:
-#         print("The summer is coming or already has gone")
-#     elif 24 <= temp <= 32:
-#         print("Yeaah, it's summer!")
-#     elif 32 < temp <= 40:
-#         print("It's not a summer, it's hell!")
+    temp = get_random_temp(season)
+    print(f"The temperature right now is {round(temp, 1)} degrees Celsius")
+    if temp < 0:
+        print("Brrr, that’s freezing! Wear some extra layers today")
+    elif temp <= 16:
+        print("Quite chilly! Don't forget your coat")
+    elif temp <= 23:
+        print("The summer is coming or already has gone")
+    elif 24 <= temp <= 32:
+        print("Yeaah, it's summer!")
+    elif 32 < temp <= 40:
+        print("It's not a summer, it's hell!")
 
-# main()
+main()
 
 
 # Exercise 8 : Star Wars Quiz
@@ -217,8 +217,8 @@ print("--------------------Exercise 7----------------------")
 
 
 def inform_about_answers(asked_questions, wrong_answers):
-    print(f"You gave {len(asked_questions) - len(wrong_answers)} correct answers and {len(wrong_answers)} incorrect answers")
-    print("Here is your incorrect answer(s):")
+    print(f"\nYou gave {len(asked_questions) - len(wrong_answers)} correct answers and {len(wrong_answers)} incorrect answers")
+    print("\nHere is your incorrect answer(s):")
     for answer in wrong_answers:
         print(f"Question: {answer['question']} Your answer: {answer['answer']}. Correct answer: {answer['correct_answer']}")
 
@@ -255,20 +255,14 @@ data = [
 incorrect_answers_num = len(ask_question(data))
 
 if incorrect_answers_num > 3:
-    print("You've made more than 3 mistakes, do you whant play one more time?")
+    print("\nYou've made more than 3 mistakes, do you whant play one more time?")
     play_again_choice = input("Play again? y/n ")
-    first_step_flag = 1
     
-    while play_again_choice == "y":     
-        if first_step_flag == 1:
-            incorrect_answers_num = len(ask_question(data))
-            first_step_flag = 0
-            continue
-        else:
-            incorrect_answers_num = len(ask_question(data))
+    while play_again_choice == "y" and incorrect_answers_num > 3:     
+        incorrect_answers_num = len(ask_question(data))
 
         if incorrect_answers_num > 3:
-            print("You've made more than 3 mistakes, do you whant play one more time?")
+            print("\nYou've made more than 3 mistakes, do you whant play one more time?")
             play_again_choice = input("Play again? y/n ")
 
 
