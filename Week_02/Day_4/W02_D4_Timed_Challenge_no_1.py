@@ -10,3 +10,7 @@
 # Character: y
 # 0
 
+input_string = input("Please input string: ")
+input_char = input("Please input character: ")
+
+print("The number of occurrences the character has in the string: ", input_string.count(input_char))
