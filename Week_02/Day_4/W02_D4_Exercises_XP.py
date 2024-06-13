@@ -141,40 +141,134 @@ show_magicians(magician_names)
 
 print("--------------------Exercise 7----------------------")
 
-def get_random_temp(season="spring"):
-    if season == "winter":
-        temp = random.uniform(-10, 15)
-    elif season == "spring" or season == "autumn":
-        temp = random.uniform(16, 23)    
-    elif season == "summer":
-        temp = random.uniform(24, 40)            
-    return temp
+# def get_random_temp(season="spring"):
+#     if season == "winter":
+#         temp = random.uniform(-10, 15)
+#     elif season == "spring" or season == "autumn":
+#         temp = random.uniform(16, 23)    
+#     elif season == "summer":
+#         temp = random.uniform(24, 40)            
+#     return temp
 
-def main():
-    month = int(input("Please enter the number of the month (1 = January, 12 = December): "))
+# def main():
+#     month = int(input("Please enter the number of the month (1 = January, 12 = December): "))
 
-    if month == 12 or month == 1 or month == 2:
-        season = "winter"
-    elif month == 3 or month == 4 or month == 5:
-        season = "spring"
-    elif month == 6 or month == 7 or month == 8:
-        season = "summer"
-    else:
-        season = "autumn"
+#     if month == 12 or month == 1 or month == 2:
+#         season = "winter"
+#     elif month == 3 or month == 4 or month == 5:
+#         season = "spring"
+#     elif month == 6 or month == 7 or month == 8:
+#         season = "summer"
+#     else:
+#         season = "autumn"
 
-    temp = get_random_temp(season)
-    print(f"The temperature right now is {round(temp, 1)} degrees Celsius")
-    if temp < 0:
-        print("Brrr, that’s freezing! Wear some extra layers today")
-    elif temp <= 16:
-        print("Quite chilly! Don't forget your coat")
-    elif temp <= 23:
-        print("The summer is coming or already has gone")
-    elif 24 <= temp <= 32:
-        print("Yeaah, it's summer!")
-    elif 32 < temp <= 40:
-        print("It's not a summer, it's hell!")
+#     temp = get_random_temp(season)
+#     print(f"The temperature right now is {round(temp, 1)} degrees Celsius")
+#     if temp < 0:
+#         print("Brrr, that’s freezing! Wear some extra layers today")
+#     elif temp <= 16:
+#         print("Quite chilly! Don't forget your coat")
+#     elif temp <= 23:
+#         print("The summer is coming or already has gone")
+#     elif 24 <= temp <= 32:
+#         print("Yeaah, it's summer!")
+#     elif 32 < temp <= 40:
+#         print("It's not a summer, it's hell!")
 
-main()
+# main()
+
+
+# Exercise 8 : Star Wars Quiz
+# This project allows users to take a quiz to test their Star Wars knowledge.
+# The number of correct/incorrect answers are tracked and the user receives different messages depending on how well they did on the quiz.
+# Here is an array of dictionaries, containing those questions and answers
+# data = [
+#     {
+#         "question": "What is Baby Yoda's real name?",
+#         "answer": "Grogu"
+#     },
+#     {
+#         "question": "Where did Obi-Wan take Luke after his birth?",
+#         "answer": "Tatooine"
+#     },
+#     {
+#         "question": "What year did the first Star Wars movie come out?",
+#         "answer": "1977"
+#     },
+#     {
+#         "question": "Who built C-3PO?",
+#         "answer": "Anakin Skywalker"
+#     },
+#     {
+#         "question": "Anakin Skywalker grew up to be who?",
+#         "answer": "Darth Vader"
+#     },
+#     {
+#         "question": "What species is Chewbacca?",
+#         "answer": "Wookiee"
+#     }
+# ]
+#     Create a function that asks the questions to the user, and check his answers. Track the number of correct, incorrect answers. Create a list og_answrs
+#     Create a function that informs the user of his number of correct/incorrect answers.
+#     Bonus : display to the user the questions he answered wrong, his answer, and the correct answer.
+#     If he had more then 3 wrong answers, ask him to play again.
+
+print("--------------------Exercise 7----------------------")
+
+
+def inform_about_answers(asked_questions, wrong_answers):
+    print(f"You gave {len(asked_questions) - len(wrong_answers)} correct answers and {len(wrong_answers)} incorrect answers")
+    print("Here is your incorrect answer(s):")
+    for answer in wrong_answers:
+        print(f"Question: {answer['question']} Your answer: {answer['answer']}. Correct answer: {answer['correct_answer']}")
+
+
+def ask_question(data):
+    wrong_user_answers = []
+    for i, question in enumerate(data):
+        # print(question)
+        print(f"The question {i + 1} of {len(data)}: {question['question']}")
+        answer = input("Please enter your answer: ")
+        if answer != question["answer"]:
+            wrong_user_answers.append({"question": question["question"], "answer": answer, "correct_answer": question["answer"]})
+
+    inform_about_answers(data, wrong_user_answers)
+
+    return (wrong_user_answers)
+
+
+data = [
+    {   "question": "What is Baby Yoda's real name?",
+        "answer": "Grogu"},
+    {   "question": "Where did Obi-Wan take Luke after his birth?",
+        "answer": "Tatooine"},
+    {   "question": "What year did the first Star Wars movie come out?",
+        "answer": "1977"},
+    {   "question": "Who built C-3PO?",
+        "answer": "Anakin Skywalker"},
+    {   "question": "Anakin Skywalker grew up to be who?",
+        "answer": "Darth Vader"},
+    {   "question": "What species is Chewbacca?",
+        "answer": "Wookiee"}
+]
+
+incorrect_answers_num = len(ask_question(data))
+
+if incorrect_answers_num > 3:
+    print("You've made more than 3 mistakes, do you whant play one more time?")
+    play_again_choice = input("Play again? y/n ")
+    first_step_flag = 1
+    
+    while play_again_choice == "y":     
+        if first_step_flag == 1:
+            incorrect_answers_num = len(ask_question(data))
+            first_step_flag = 0
+            continue
+        else:
+            incorrect_answers_num = len(ask_question(data))
+
+        if incorrect_answers_num > 3:
+            print("You've made more than 3 mistakes, do you whant play one more time?")
+            play_again_choice = input("Play again? y/n ")
 
 
