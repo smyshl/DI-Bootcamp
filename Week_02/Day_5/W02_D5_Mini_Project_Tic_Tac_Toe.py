@@ -46,8 +46,8 @@ def check_whos_turn(list_of_turns):
 
     if not ("X" or "0") in list_of_turns:
         return "X"
-    elif list_of_turns.count(" ") == 0:
-        return "GAME OVER"
+    # elif list_of_turns.count(" ") == 0:
+    #     return "GAME OVER"
     elif list_of_turns.count("X") > list_of_turns.count("0"):
         return "0"
     elif list_of_turns.count("X") <= list_of_turns.count("0"):
@@ -77,45 +77,45 @@ def check_win(list_of_turns):
     '''Returns "X", "0" or "tie"'''
 
     for i in range(3):
-        if list_of_turns[i * 3] == list_of_turns[i * 3 + 1] == list_of_turns[i * 3 + 2]:
+        if list_of_turns[i * 3] == list_of_turns[i * 3 + 1] == list_of_turns[i * 3 + 2] and list_of_turns[i * 3] != " ":
             return list_of_turns[i * 3]
-        if list_of_turns[i] == list_of_turns[i + 3] == list_of_turns[i + 6]:
+        if list_of_turns[i] == list_of_turns[i + 3] == list_of_turns[i + 6] and list_of_turns[i] != " ":
             return list_of_turns[i]
+    
+    if list_of_turns[0] == list_of_turns[4] == list_of_turns[-1] and list_of_turns[0] != " ":
+        return list_of_turns[0]
+    
+    if list_of_turns[2] == list_of_turns[4] == list_of_turns[-3] and list_of_turns[2] != " ":
+        return list_of_turns[2]
+    
+    if list_of_turns.count(" ") == 0:
+        return "tie"
         
-
-
-
 
 def make_turns(list_of_turns=[" "]*9):
 
-    # whos_turn = check_whos_turn(list_of_turns)
-
-    while check_whos_turn(list_of_turns) != "GAME OVER":
+    while not check_win(list_of_turns):
         print(f"Player's {check_whos_turn(list_of_turns)} turn...")
         left_turns = list_of_turns.count(" ")  # for checking if the input was successfull
-        # print("left_turns", left_turns)
         input_turn(list_of_turns, check_whos_turn(list_of_turns))
-        # print("turns left after input", list_of_turns.count(" "))
 
-        while left_turns == list_of_turns.count(" "): # checking if the input was successfull
+        while left_turns == list_of_turns.count(" "): # loop while the input would be successfull
             input_turn(list_of_turns, check_whos_turn(list_of_turns))
 
         print_board(list_of_turns)
 
-    
-    print(check_whos_turn(list_of_turns))
 
 
-
-# list_of_turns = ["1", "2", "X", "4", "5", "X", "7", "8", "X"]
 list_of_turns = [" "]*9
 
-
-# print_board()
-# input("Press Enter to start game")
+print("\n        WELCOME")
+print("           to")
+print_board()
+input("Press Enter to start game")
 print_board(list_of_turns)
 make_turns(list_of_turns)
-print(check_win(list_of_turns))
+print("The winner is:", check_win(list_of_turns))
+print()
 
 
 
