@@ -138,57 +138,67 @@ def exercise_3():
 
 class Zoo:
     def __init__(self, zoo_name) -> None:
-        self.animals = ["Eel", "Baboon", "Ape", "Cat", "Bear", "Cougar", "Emu"]
+        self.animals = []
         self.name = zoo_name
 
     def add_animal(self, new_animal):
         if new_animal not in self.animals:
             self.animals.append(new_animal)
 
+    def get_animals(self):
+        print(f"In the {self.name} Zoo lives: {', '.join(self.animals)}")
+
     def sell_animal(self, animal_sold):
         if animal_sold in self.animals:
             self.animals.remove(animal_sold)
 
     def sort_animals(self):
-        print(self.animals)
         first_letters_list = sorted(list({animal[0] for animal in self.animals}))
-        first_letters_dict = {letter: None for letter in first_letters_list}
-        # sorted_animals = dict(zip(range(1, len(first_letters_list) + 1), first_letters_list))
-        print(first_letters_dict)
-        for animal in self.animals:
-            if first_letters_dict[animal[0]] == None:
-                first_letters_dict[animal[0]] = animal
+        sorted_animals = {index + 1: first_letters_list[index] for index in range(len(first_letters_list))}
+
+        for index, animal in sorted_animals.items():
+            sorted_animals[index] = [animal for animal in self.animals if sorted_animals[index] == animal[0]]
+
+        for index, animal in sorted_animals.items():
+            if len(animal) == 1:
+                sorted_animals[index] = animal[0]
+
+        return sorted_animals
+
+    def get_groups(self):
+        sorted_animals = self.sort_animals()
+
+        for group, animals in sorted_animals.items():
+            if isinstance(animals, str):
+                animals_string = animals
             else:
-                first_letters_dict[animal[0]] = first_letters_dict[animal[0]] + "," + animal
-
-        print(first_letters_dict)
-
-        first_letters_dict = {letter: animals.split(',') for letter, animals in first_letters_dict.items()}
-        print(first_letters_dict)
-
-        # sorted_dict = {i: animals.split(',') for i in range(1, len(first_letters_dict) + 1) for key, animals in first_letters_dict.items()}
-
-        # print(sorted_dict)
-
-
-
+                animals_string = ', '.join(animals)
+            print(group, animals_string)
 
 
 
 def exercise_4():
     print("--------------------Exercise 4----------------------")
 
-    zoo_1 = Zoo("zoo_1")
+    ramat_gan_safari = Zoo("Ramat Gan Safari")
+    ramat_gan_safari.add_animal("Giraffe")
 
-    zoo_1.sort_animals()
+    for animal in ["Eel", "Baboon", "Ape", "Cat", "Bear", "Cougar", "Emu", "Cockatoo parrot"]:
+        ramat_gan_safari.add_animal(animal)
+
+    ramat_gan_safari.get_animals()
+    ramat_gan_safari.sell_animal("Cockatoo parrot")
+    ramat_gan_safari.get_animals()
+
+    ramat_gan_safari.get_groups()
 
 
 
 def main():
 
-    # exercise_1()
-    # exercise_2()
-    # exercise_3()
+    exercise_1()
+    exercise_2()
+    exercise_3()
     exercise_4()
     
 
