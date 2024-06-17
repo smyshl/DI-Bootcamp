@@ -1,4 +1,5 @@
 from random import choice
+from W03_D2_Exercises_XP import Dog
 
 # Exercise 3 : Dogs Domesticated
 
@@ -17,7 +18,7 @@ from random import choice
 #             “dog_name shakes your hand”.
 #             “dog_name plays dead”.
 
-from W03_D2_Exercises_XP import Dog
+
 
 class PetDog(Dog):
     def __init__(self, name, age, weight, trained=False):
@@ -37,9 +38,6 @@ class PetDog(Dog):
             print(self.name, choice(trick_list))
         else:
             print(self.name, "hasn't trained yet. It should be trained before doing tricks")
-
-
-
 
 
 def exercise_3():
