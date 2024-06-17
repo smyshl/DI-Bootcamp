@@ -38,33 +38,45 @@
 class Pagination:
 
     current_start_item = 0
+    totalPages = 1
 
     def __init__(self, items=None, pageSize=10) -> None:
         self.items = items
         self.pageSize = pageSize
+        self.totalPages = (len(self.items) // self.pageSize) + 1
 
     def firstPage(self):
         self.current_start_item = 0
-        return self.current_start_item
-
+        return self
 
     def lastPage(self):
         self.current_start_item = (len(self.items) // self.pageSize) * self.pageSize
-        return self.current_start_item
+        return self
     
     def getVisibleItems(self):
         print(self.items[self.current_start_item : self.current_start_item + self.pageSize])
         return self.items[self.current_start_item : self.current_start_item + self.pageSize]
     
     def nextPage(self):
-        self.current_start_item += self.pageSize
+        if self.current_start_item + self.pageSize < len(self.items):
+            self.current_start_item += self.pageSize
         return self
     
     def prevPage(self):
-        self.current_start_item -= self.pageSize
+        if self.current_start_item - self.pageSize >= 0:        
+            self.current_start_item -= self.pageSize
         return self
     
+    def goToPage(self, page):
+        if page <= 0:
+            page = 1
+        if page > self.totalPages:
+            page = self.totalPages
 
+        self.current_start_item = self.pageSize * (page - 1)
+
+        return self
+    
 
 def main():
 
@@ -72,24 +84,25 @@ def main():
 
     p = Pagination(alphabet, 4)
 
-    p.firstPage()
-    p.nextPage().nextPage()
-    p.getVisibleItems()
-    p.lastPage()
-    p.getVisibleItems()
-    p.firstPage()
-    p.nextPage()
-    p.getVisibleItems()
-    p.prevPage()
-    p.getVisibleItems()
+    print("Total pages:", p.totalPages)
 
-    for step in range(10):
+    p.firstPage()
+    print("   Page 1 - ", end='')
+    p.getVisibleItems()
+    for step in range(p.totalPages):
         p.nextPage()
+        print("Next page - ", end='')
         p.getVisibleItems()
-    
 
+    for step in range(p.totalPages):
+        p.prevPage()
+        print("Prev page - ", end='')
+        p.getVisibleItems()
 
-
+    for step in range (0, p.totalPages + 2, 1):
+        p.goToPage(step)
+        print(f"   Page {step} - ", end='')
+        p.getVisibleItems()
 
 
 if __name__ == "__main__":
