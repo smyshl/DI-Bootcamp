@@ -1,6 +1,7 @@
 import string
 import random
 from datetime import date, datetime
+from faker import Faker
 
 # Exercise 1: Currencies
 
@@ -58,7 +59,9 @@ class Currency:
             if self.currency == other.currency:
                 return self.amount + other.amount
             else:
-                raise TypeError (f"Cannot add between Currency type '{self.currency}' and '{other.currency}'")
+                # raise TypeError (f"Cannot add between Currency type '{self.currency}' and '{other.currency}'")
+                #  -- comment because after raising this error program stops
+                print(f"TypeError: Cannot add between Currency type '{self.currency}' and '{other.currency}'")
         
     def __iadd__(self, other):
         if isinstance(other, int):
@@ -154,13 +157,63 @@ def exercise_5():
     print("The 1st of January is in", delta, "hours")
 
 
+# Exercise 6 : Birthday and minutes
+
+#     Create a function that accepts a birthdate as an argument (in the format of your choice), then displays a message stating how many minutes the user lived in his life.
+
+def exercise_6(birthday):
+    print("--------------------Exercise 6----------------------")
+
+    birthday_date = datetime(*list(map(int, birthday.split('.'))))
+    now = datetime.today()
+    delta = int((now - birthday_date).total_seconds() / 60)
+
+    print(f"Since birthday {birthday_date.date()} till now has passed {delta} minutes")
+
+
+# Exercise 7 : Faker Module
+
+#     Install the faker module, and take a look at the documentation and learn how to properly implement faker in your code.
+#     Create an empty list called users. Tip: It should be a list of dictionaries.
+#     Create a function that adds new dictionaries to the users list.
+#     Each user has the following keys: name, adress, langage_code. Use faker to populate them with fake data.
+
+def exercise_7(users:list):
+    print("--------------------Exercise 7----------------------")
+
+    fake = Faker()
+  
+    for index in range(10):
+
+        user_dict = {}
+
+        user_dict['first_name'] = fake.name().split(' ')[0]
+        user_dict['second_name'] = fake.name().split(' ')[1]
+        user_dict['address'] = fake.address()
+        user_dict['language_code'] = fake.language_code()
+
+        users.append(user_dict)
+
+    return(user_dict)
+
+
+
 def main():
     
-    # exercise_1()
-    # exercise_2()
-    # exercise_3()
-    # exercise_4()
+    exercise_1()
+    exercise_2()
+    exercise_3()
+    exercise_4()
     exercise_5()
+
+    birthday = "1978.03.08"
+    exercise_6(birthday)
+    
+    users = []
+    exercise_7(users)
+    print("Fake users:")
+    for index, user in enumerate(users):
+        print(index + 1, user)
 
 if __name__ == "__main__":
     main()
