@@ -15,7 +15,11 @@ import math
 #     Bonus (not mandatory) : Install the Turtle module, and draw the sorted circles
 
 class Circle:
+
+    instances = []
+
     def __init__(self, radius:int, radius_input=True) -> None:
+        Circle.instances.append(self)
         self.radius_input = radius_input
         if radius_input:
             self.radius = radius
@@ -32,8 +36,6 @@ class Circle:
     def __add__(self, other):
         if isinstance(other, Circle):
             return Circle(self.radius + other.radius)
-        else:
-            return f"TypeError: Cannot add Circle and {type(other)}"
         
     def __lt__(self, other):
         if self.radius < other.radius:
@@ -52,28 +54,24 @@ class Circle:
         return sorted(items)
 
 
-
 def main():
     
     circle_1 = Circle(3, True)
     circle_2 = Circle(5, False)
     circle_3 = Circle(6, False)
     circle_4 = Circle(2, True)
-    circles_list = []
 
-    print(globals()['Circle'])
+    for index, circle_instance in enumerate(Circle.instances):
+        print(index + 1, circle_instance)
 
-    print(circle_1)
-    print(circle_2)
-    print(circle_3)
-
-    print("+", circle_1 + circle_3)
+    print("+", circle_1 + circle_4)
     print("<", circle_1 < circle_2)
     print(">", circle_1 > circle_2)
     print("==", circle_1 == circle_2)
     print("==", circle_1 == circle_3)
 
-    print(list(map(str, Circle.sort_circles([circle_1, circle_2, circle_3, circle_4]))))
+    for index, circle_instance in enumerate(Circle.sort_circles(Circle.instances)):
+        print(index + 1, circle_instance)
 
 
 if __name__ == "__main__":
