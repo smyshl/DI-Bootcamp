@@ -37,13 +37,11 @@
 
 class Pagination:
 
-    current_start_item = 0
-    totalPages = 1
-
     def __init__(self, items=None, pageSize=10) -> None:
         self.items = items
         self.pageSize = pageSize
         self.totalPages = (len(self.items) // self.pageSize) + 1
+        self.current_start_item = 0
 
     def firstPage(self):
         self.current_start_item = 0
