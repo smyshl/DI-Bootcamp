@@ -35,7 +35,7 @@ class Text:
     @classmethod
     def word_frequency(cls, text_string:str, word:str) -> int | None:
         word_freq_1 = text_string.lower().count(word)
-        word_freq_2 = Counter(text_string.lower().split(" "))
+        # word_freq_2 = Counter(text_string.lower().split(" "))
 
         if word_freq_1 > 0:
             return word_freq_1
@@ -69,6 +69,34 @@ class Text:
         return Text
 
 
+class TextModification(Text):
+
+    @classmethod
+    def remove_punctuation(cls) -> str:
+        text_string = super().text_string
+        new_text_string = re.sub(r'[^\w\s]', '', text_string)
+        # print(new_text_string)
+
+
+    @classmethod
+    def remove_special_char(cls) -> str:
+        text_string = super().text_string
+        new_text_string = re.sub(r'[^A-Za-z0-9\s]', '', text_string)
+        # print(new_text_string)
+
+
+    @classmethod
+    def remove_stop_words(cls) -> str:
+        with open("NLTK's list of english stopwords.txt") as nltk:
+            stop_words_list = nltk.read().split('\n')
+
+        text = re.sub(r'[^A-Za-z0-9\s]', '', super().text_string.lower())
+        text_list = text.split(' ')
+
+        new_text = ' '.join([word for word in text_list if word not in stop_words_list])
+
+        return new_text
+
 
 def main():
     
@@ -83,6 +111,9 @@ def main():
     print("The most common word in the text is:", Text.most_common_word(Text.text_string))
     print(f"Unique words in the text:", Text.unique_words(Text.text_string))
 
+    TextModification.remove_punctuation()
+    TextModification.remove_special_char()
+    print(TextModification.remove_stop_words())
 
 
 if __name__ == "__main__":
