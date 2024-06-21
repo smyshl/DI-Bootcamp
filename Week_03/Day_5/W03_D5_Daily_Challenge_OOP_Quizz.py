@@ -66,7 +66,7 @@ class Deck:
         elif len(self.cards) > 0:
             return self.cards.pop()
         else:
-            return "The deck is empty, complete new one"
+            return "The deck is empty, complete the new one"
            
 
     

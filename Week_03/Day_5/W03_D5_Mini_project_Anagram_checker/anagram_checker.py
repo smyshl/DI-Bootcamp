@@ -50,7 +50,7 @@ class AnagramChecker:
     
 def main():
     
-    a1 = AnagramChecker("words")
+    a1 = AnagramChecker("anagram")
 
     print(a1.is_valid_word())
     print("total words:", len(a1.list_of_english_words))
