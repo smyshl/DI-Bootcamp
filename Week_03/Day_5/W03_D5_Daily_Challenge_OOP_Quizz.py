@@ -3,17 +3,19 @@ from random import shuffle
 # Instructions
 # Part 1 : Quizz :
 # Answer the following questions
-
-#     What is a class?
-#     What is an instance?
-#     What is encapsulation?
-#     What is abstraction?
-#     What is inheritance?
-#     What is multiple inheritance?
-#     What is polymorphism?
-#     What is method resolution order or MRO?
-
-
+                                        #  Answers:
+#     What is a class? ---It's like template of some object, which which defines all its characteristics and behavior 
+                          # but it' only template without particular values
+#     What is an instance? --- it's an object, created from a template filled with specific values 
+#     What is encapsulation? --- princip of combining data (attributes) and functions (methods) which manipulate that data
+                                # in one place - inside class (as a template) and object (as a specific values ​​and data)
+#     What is abstraction? ---- It's a the concept of hiding the details of the functioning of an object (class) and
+#                               #providing access only to the necessary attributes and methods
+#     What is inheritance? ----It's an ability of a class (child) to take an attributes and methods of another class (parent).
+#     What is multiple inheritance? ----It's the same concept as inheritance but with more than one parent class
+#     What is polymorphism? --- It's an ability of different classes to have methods with the same name but with different behaviour.
+#     What is method resolution order or MRO? --- It's the method which defines the rules for the order of searching methods
+#                                                    in case of multiple inheritance
 
 
 
