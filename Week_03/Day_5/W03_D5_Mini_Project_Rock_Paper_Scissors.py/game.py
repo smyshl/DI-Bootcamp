@@ -23,8 +23,12 @@ class Game:
 
 
     def get_user_item(self) -> str:
-        input_string = input("Enter your choice (r/p/s): ")
+        input_string = "start"
+        while input_string not in self.choice_dict:
+            input_string = input("Choose (r)ock, (p)aper or (s)cissors: ")
+        
         user_item = self.choice_dict[input_string]
+
         return user_item
 
     
@@ -36,30 +40,27 @@ class Game:
     def get_game_result(self, user_item: str, computer_item: str) -> str:
         win_combinations_list = [("rock", "scissors"), ("paper", "rock"), ("scissors", "paper")]
         if user_item == computer_item:
-            return "draw"
+            return "drew"
         elif (user_item, computer_item) in win_combinations_list:
-            return "win"
+            return "won"
         else:
-            return "loss"
-
-
+            return "lost"
 
 
 def play():
     
-    game = Game()
-    user_item = game.get_user_item()
-    computer_item = game.get_computer_item()
-    print(user_item)
-    print(computer_item)
-    print("User:", game.get_game_result(user_item, computer_item))
+    game_0 = Game()
+    user_item = game_0.get_user_item()
+    computer_item = game_0.get_computer_item()
 
+    game_result = game_0.get_game_result(user_item, computer_item)
 
+    print(f'You chose: {user_item.upper()}. The computer chose: {computer_item.upper()}. Result: {game_result.upper()}')
 
+    return game_result
 
 
 def main():
-    
     play()
 
 
