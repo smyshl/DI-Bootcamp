@@ -23,3 +23,17 @@ VALUES
 SELECT * FROM actors;
 
 SELECT COUNT(actor_id) FROM actors;
+
+-- If I try to add a new actor with some blank fields, there'll be an error.
+-- Because all fields in the table must be NOT NULL.
+-- But lets try:
+
+INSERT INTO actors (first_name, last_name, age, number_oscars)
+	VALUES
+	('Al', 'Pacino', '1950-01-01', 100),
+	('', 'Banderas', '1965-01-01', 0);
+
+Actually it added records.
+NOT NULL it's not NOT ''
+
+SELECT * FROM actors;
