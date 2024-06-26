@@ -1,0 +1,5 @@
+
+
+DATABASE_NAME = 'countries'
+DATABASE_USER = 'postgres'
+DATABASE_PASSWORD = 'A836$cw7@5oWUe6s7Zf6'
