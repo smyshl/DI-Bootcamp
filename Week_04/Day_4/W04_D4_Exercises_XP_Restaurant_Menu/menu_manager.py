@@ -13,7 +13,8 @@ class Menu_manager:
             cur.execute("SELECT * FROM menu_items WHERE item_name = %s;", (name,))
             item = cur.fetchall()
         conn.close()
-        return item
+        if item:
+            return item
     
     
     @classmethod
