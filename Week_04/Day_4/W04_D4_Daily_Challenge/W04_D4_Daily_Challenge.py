@@ -9,11 +9,10 @@ from constants import DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD
 def get_countries_json():
     r = requests.get('https://restcountries.com/v3.1/all')
     countries_json = r.json()
-    return countries_json
+    return choices(countries_json, k=10)
 
 
 def get_countries_info(countries_json):
-
 
     countries_info = [
         {"name": countrie['name']['official'],
@@ -22,17 +21,19 @@ def get_countries_info(countries_json):
          "flag": countrie['flag'],
          "population": countrie['population']
         }
-
+        for countrie in countries_json
     ]
 
-
-    # print(choices(get_countries_json(), k=10)[0])
-    countries_dict = get_countries_json()[99]
-    # print(countries_dict['name']['common'])
-    print(countries_dict['name']['official'])
-    printc)
+    return countries_info
 
 
+def create_table():
+    conn = connect_to_db()
+    with conn.cursor() as cur:
+        cur.execute("CREATE TABLE IF NOT EXISTS countries (id SERIAL PRIMARY KEY, name VARCHAR(60), capital VARCHAR(40),"
+                   "flag VARCHAR(4), subregion VARCHAR(30), population INTEGER)")
+    conn.commit()
+    conn.close()
 
 
 def connect_to_db():
@@ -40,12 +41,26 @@ def connect_to_db():
     return connection
 
 
+def insert_countries(countries_info):
+    conn = connect_to_db()
+    with conn.cursor() as cur:
+        for countrie in countries_info:
+            cur.execute("INSERT INTO countries (name, capital, flag, subregion, population)"
+                        "VALUES (%s, %s, %s, %s, %s)", (countrie['name'], countrie['capital'], countrie['flag'],
+                                                        countrie['subregion'], countrie['population']))
+    conn.commit()
+    conn.close()
 
 
 
 def main():
 
-    get_countries_info(get_countries_json)
+
+    countries = get_countries_info(get_countries_json())
+    create_table()
+    insert_countries(countries)
+    
+
 
 
 if __name__ == "__main__":
