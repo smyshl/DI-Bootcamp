@@ -14,3 +14,17 @@ Instructions
 
 */
 
+var star = ""
+
+for (let index = 0; index <= 5; index++){
+    star += "* "
+    console.log(star)
+}
+
+for (let row = 1; row <= 6; row++){
+    var star = ""
+    for (col = 1; col <=row; col++){
+        star += "* "
+    }
+    console.log(star)
+}
