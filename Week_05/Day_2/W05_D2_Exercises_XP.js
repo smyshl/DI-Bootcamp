@@ -90,3 +90,166 @@ for (index in colors){
     ind_for_print = +index + 1 + suffix_arr[index]
     console.log("My " + ind_for_print + " choice is", colors[index]);
 };
+
+/*
+Exercise 3 : Repeat the question
+Instructions
+    Prompt the user for a number.
+    Hint : Check the data type you receive from the prompt (ie. Use the typeof method)
+    While the number is smaller than 10 continue asking the user for a new number.
+    Tip : Which while loop is more relevant for this situation?
+*/
+var steps = 0
+do{
+var user_input = prompt("Please enter a number");
+var user_number = Number(user_input);
+console.log(user_number, typeof(user_number));
+steps++
+} while (user_number < 10 && steps < 100);
+
+// for me it's better to use this kind of while loop
+// because in this case you don't need to write strings 104 and 105 second time
+// if we use simple while, we'll have to ask number before the loop and
+// in the loop on each step
+// but result will be the same :)
+
+
+/*
+Exercise 4 : Building Management
+Instructions:
+
+const building = {
+    numberOfFloors: 4,
+    numberOfAptByFloor: {
+        firstFloor: 3,
+        secondFloor: 4,
+        thirdFloor: 9,
+        fourthFloor: 2,
+    },
+    nameOfTenants: ["Sarah", "Dan", "David"],
+    numberOfRoomsAndRent:  {
+        sarah: [3, 990],
+        dan:  [4, 1000],
+        david: [1, 500],
+    },
+}
+
+Review about objects
+    Copy and paste the above object to your Javascript file.
+    Console.log the number of floors in the building.
+    Console.log how many apartments are on the floors 1 and 3.
+    Console.log the name of the second tenant and the number of rooms he has in his apartment.
+    Check if the sum of Sarah’s and David’s rent is bigger than Dan’s rent. If it is, than increase Dan’s rent to 1200.
+
+*/
+
+const building = {
+    numberOfFloors: 4,
+    numberOfAptByFloor: {
+        firstFloor: 3,
+        secondFloor: 4,
+        thirdFloor: 9,
+        fourthFloor: 2,
+    },
+    nameOfTenants: ["Sarah", "Dan", "David"],
+    numberOfRoomsAndRent:  {
+        sarah: [3, 990],
+        dan:  [4, 1000],
+        david: [1, 500],
+    },
+};
+
+console.log("Number of floors:", building.numberOfFloors);
+
+console.log("Number of appartments on floors 1 and 3:", building.numberOfAptByFloor.firstFloor + building.numberOfAptByFloor.thirdFloor);
+
+var name_sec_ten = building.nameOfTenants[1];
+console.log("Second tenant:", name_sec_ten, "\nnumber of rooms:", building.numberOfRoomsAndRent[name_sec_ten.toLowerCase()][0]);
+
+// of course it's better to do using functions, but it will be on tomorrow lecture
+// and I really don't have time to read about it by myself now, sorry
+var sarahs_index = building.nameOfTenants.indexOf("Sarah");
+var sarahs_name_in_low = building.nameOfTenants[sarahs_index].toLowerCase();
+var sarahs_rent = building.numberOfRoomsAndRent[sarahs_name_in_low][1];
+var davids_index = building.nameOfTenants.indexOf("David");
+var davids_name_in_low = building.nameOfTenants[davids_index].toLowerCase();
+var davids_rent = building.numberOfRoomsAndRent[davids_name_in_low][1];
+var dans_index = building.nameOfTenants.indexOf("Dan");
+var dans_name_in_low = building.nameOfTenants[dans_index].toLowerCase();
+var dans_rent = building.numberOfRoomsAndRent[dans_name_in_low][1];
+if (sarahs_rent + davids_rent > dans_rent){
+    building.numberOfRoomsAndRent[dans_name_in_low][1] = 1200;
+    console.log("The new Dan's rent:", building.numberOfRoomsAndRent[dans_name_in_low][1]);
+};
+
+
+/*
+Exercise 5 : Family
+Instructions
+    Create an object called family with a few key value pairs.
+    Using a for in loop, console.log the keys of the object.
+    Using a for in loop, console.log the values of the object.
+*/
+
+var family = {
+    father: "Dan",
+    mother: "Sarah",
+    son: "David"
+};
+
+console.log("The keys:")
+for (person in family){
+    console.log(person);
+};
+
+console.log("The values:")
+for (person in family){
+    console.log(family[person]);
+};
+
+
+/*
+Exercise 6 : Rudolf
+Instructions
+
+const details = {
+  my: 'name',
+  is: 'Rudolf',
+  the: 'reindeer'
+}
+
+    Given the object above and using a for loop, console.log “my name is Rudolf the reindeer”
+*/
+
+const details = {
+    my: 'name',
+    is: 'Rudolf',
+    the: 'reindeer'
+  };
+
+  var output_str = ""
+  for (key in details){
+    output_str += key + " " + details[key] + " "
+  };
+  console.log(output_str)
+
+
+  /*
+Exercise 7 : Secret Group
+Instructions
+
+const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
+
+    A group of friends have decided to start a secret society. The society’s name will be the first letter of each of their names sorted in alphabetical order.
+    Hint: a string is an array of letters
+    Console.log the name of their secret society. The output should be “ABJKPS”
+  */
+
+const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
+
+var secret_name = [];
+
+for (_name of names){
+    secret_name.push(_name[0])
+};
+console.log(secret_name.sort().join(""))
