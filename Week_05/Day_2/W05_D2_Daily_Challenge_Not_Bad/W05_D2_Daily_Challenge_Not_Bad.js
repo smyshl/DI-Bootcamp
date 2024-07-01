@@ -24,9 +24,15 @@ Example:
 var sentence = "The movie is not that bad, I like it";
 var wordNot = sentence.indexOf("not")
 var wordBad = sentence.indexOf("bad")
+var new_sentence = "good"
 
-if (wordBad > wordNot){
-    end_frase_index = wordNot + wordBad + 3;
+
+if (wordBad > wordNot && wordNot >= 0){
+    end_frase_index = wordBad + 3;
+    new_sentence = sentence.slice(0, wordNot) + new_sentence + sentence.slice(end_frase_index, sentence.length)
+    console.log(new_sentence)
+}else{
+    console.log(sentence)
 }
 
-console.log(sentence, wordNot, wordBad, end_frase_index)
+
