@@ -50,3 +50,57 @@ You only have to work with a JS file.
 </html>
 */
 
+let planets_arr = [
+    "Mercury",
+    "Venus",
+    "Earth",
+    "Mars",
+    "Jupiter",
+    "Saturn",
+    "Uranus",
+    "Neptune"
+  ];
+
+let moons = {
+    Mercury: [],
+    Venus: [],
+    Earth: ["Moon"],
+    Mars: ["Phobos", "Deimos"],
+    Jupiter: ["Io", "Europa", "Ganymede", "Callisto"],
+    Saturn: ["Titan", "Rhea", "Iapetus", "Dione", "Tethys", "Enceladus", "Mimas"],
+    Uranus: ["Miranda", "Ariel", "Umbriel", "Titania", "Oberon"],
+    Neptune: ["Triton", "Nereid", "Proteus", "Larissa", "Hippocamp"]
+  };
+
+  function rand_int(){
+    return Math.floor(Math.random() * 255)
+  };
+
+  function set_tag(target_place, obj_to_set, type, left_pos){
+    let _div = document.createElement("div");
+    let _div_text_node = document.createTextNode(obj_to_set);
+    target_place.appendChild(_div);
+    target_place.lastElementChild.appendChild(_div_text_node);
+
+    target_place.lastElementChild.setAttribute("class", type);
+
+    if (type === "planet"){
+        var _color = 'rgb(' + rand_int() + ", " + rand_int() + ", " + rand_int() + ')';
+        target_place.lastElementChild.style.backgroundColor = _color;
+    }else{
+        target_place.lastElementChild.style.left = left_pos
+    };
+};
+
+  for (planet of planets_arr){
+    var target_object = document.getElementsByTagName("section")[0];
+    set_tag(target_object, planet, "planet");
+        
+    target_object = target_object.lastElementChild;
+    left_shift = 0
+
+    for (moon of moons[planet]){
+        set_tag(target_object, moon, "moon", left_shift + "px");
+        left_shift += 70
+    };
+  };
