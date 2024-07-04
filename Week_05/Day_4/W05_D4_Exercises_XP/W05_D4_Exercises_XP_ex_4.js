@@ -48,7 +48,6 @@ function _form_submit(e){
         _volume.value = 4 / 3 * Math.PI * radius ** 3;
     };
 
-    console.log(radius);
 };
 
 _form.addEventListener("submit", _form_submit);
