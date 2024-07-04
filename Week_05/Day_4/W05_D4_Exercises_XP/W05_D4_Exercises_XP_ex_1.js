@@ -51,14 +51,12 @@ let _button = document.getElementById("btn");
 _button.addEventListener("click", function () {
     for (_tag of _p){
         _tag.style.fontWeight = "bold"
-        // console.log(_tag);
     };
 });
 
 // 6
 _h1.addEventListener("mouseover", function () {
     _h1.style.fontSize = Math.floor(Math.random() * 100) + "px"
-    // console.log(_h1);
 });
 
 // 7
@@ -68,18 +66,3 @@ _p_1.addEventListener("mouseover", function () {
     _p_1.style.transition = "opacity 1s ease-out";
     _p_1.style.opacity = 0;
 });
-// _p_1.style.opacity = 1;
-// _p_1.style.transition = "opacity 1s ease-out"
-// _p_1.style.opacity = 0
-
-console.log(_p[1]);
-
-
-
-// _h1.addEventListener("mouseout", function () {
-//     _h1.style.fontSize = ""
-//     console.log(_h1);
-// });
-
-Math.floor(Math.random() * 100)
-
