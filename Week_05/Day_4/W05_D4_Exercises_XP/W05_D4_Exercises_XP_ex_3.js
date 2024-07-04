@@ -21,43 +21,40 @@ In the JS file:
 let allBoldItems = [];
 
 // 2
-let _fname = document.getElementById("fname")
-let _lname = document.getElementById("lname")
-let _submit = document.getElementById("submit");
-console.log(_fname);
-console.log(_lname);
-console.log(_submit);
-
-// 3
-console.log(_form.elements['firstname']);
-console.log(document.getElementsByName('lastname')[0]);
-
-
-// 4
-function _form_submit(e){
-    e.preventDefault();
-    let _ul = document.getElementsByTagName("ul")[0];
-    let first_name = _fname.value.trim();
-    let last_name = _lname.value.trim();
-    if (first_name === "" || last_name === ""){
-        alert("Please enter valid first an last names");
-        // return ""
-    } else {
-        let _li_fname = document.createElement("li");
-        let _li_lname = document.createElement("li");
-
-        _li_fname.textContent = "First name of the user: " + first_name;
-        _li_lname.textContent = "Last name of the user: " + last_name;
-
-        _ul.appendChild(_li_fname);
-        _ul.appendChild(_li_lname);
-
-        console.log(e.target);
-
+function getBoldItems(){
+    let _get_bold_collection = document.getElementsByTagName('strong');
+    for (item of _get_bold_collection){
+        allBoldItems.push(item);
     };
 };
 
-_form.addEventListener("submit", _form_submit);
+getBoldItems();
 
+// 3
+function highligth(elements_arr, _color="blue"){
+    for (element of elements_arr){
+    element.style.color = _color;
+    };
+};
 
-// // console.log(_submit);
+highligth(allBoldItems);
+
+// 4
+function returnItemsToDefault(items_arr, default_color="black"){
+    highligth(items_arr, default_color)
+};
+
+returnItemsToDefault(allBoldItems);
+
+// 5
+let _target_tag = document.getElementsByTagName("p")[0];
+
+_target_tag.addEventListener("mouseover", function (){
+    highligth(allBoldItems);
+    }
+);
+
+_target_tag.addEventListener("mouseout", function (){
+    returnItemsToDefault(allBoldItems);
+    }
+);
