@@ -59,21 +59,20 @@ function _form_submit(e){
   values = getFormValues();
 
   for (_name in values){
-    console.log(_name, values[_name]);
     if (values[_name] === ''){
       alert("Please enter all words");
       return;
     };
   };
 
+  _told_stories = [];
   story = _make_story(values);
-  _place_story(story, e)
+  _place_story(story, e);
 
   _input_words = values;
 };
 
 _form.addEventListener("submit", _form_submit);
-
 
 function _make_story(input){
   let _stories_templates = [
@@ -83,24 +82,24 @@ function _make_story(input){
     `Every summer, ${input.person} travels to the ${input.adjective} ${input.place}. One day, while ${input.verb} near the ${input.noun}, they discovered something truly amazing.`,
     `In a ${input.adjective} ${input.place}, a ${input.noun} was feeling very bored. To make things interesting, ${input.person} decided to ${input.verb} and ended up having the best adventure ever.`
   ];
-  let story_num = Math.floor(Math.random() * (_stories_templates.length - 1));
-  console.log("ctory number", story_num);
-  console.log("told_story_length" , _told_stories.length);
-    console.log("stories_templates_length" , _stories_templates.length);
-  while (_told_stories.length < _stories_templates.length){
-    console.log("hi from while");
-    if (_told_stories.includes(story_num)){
-      console.log("_told_stories.includes(story_num)");
-      story_num = Math.floor(Math.random() * (_stories_templates.length - 1));
-    } else {
-      _told_stories.push(story_num);
+
+  let story_num = 0
+
+  if (_told_stories.length < _stories_templates.length){
+
+    story_num = Math.floor(Math.random() * (_stories_templates.length));
+
+    while (_told_stories.includes(story_num)){
+      story_num = Math.floor(Math.random() * (_stories_templates.length));
     };
+
+    _told_stories.push(story_num);  
+    return _stories_templates[story_num];
+
+  }else {
+    return "This is the end of this story"
   };
-
-  console.log(_stories_templates[story_num]);
-  return _stories_templates[story_num];
 };
-
 
 function _place_story(story, e){
   if (e.type === "submit"){
@@ -120,15 +119,9 @@ function _place_story(story, e){
   } else {
     _place_for_story.textContent = story;
   };
-
-
 };
 
-
 function _shuffle_story(e){
-    console.log("told stories:", _told_stories);
-    console.log("input words:", _input_words);
-    story = _make_story(_input_words)
+    story = _make_story(_input_words);
   _place_story(story, e);
-
 };
