@@ -24,6 +24,7 @@ let _color_set = [
 
 let _left_grid = document.getElementById("left_container");
 let _right_grid = document.getElementById("right_container");
+let _clear_btn = document.getElementById("clear_button");
 let _selected_color = ''
 
 function _make_element(place, type, _class='', _color=''){
@@ -37,7 +38,6 @@ function _make_element(place, type, _class='', _color=''){
     };
 
     place.appendChild(element);
-
 };
 
 
@@ -49,46 +49,38 @@ function _set_boxes(amount, place, type, _class){
         } else {
             _make_element(place, type, _class)
         };
-
     };
 };
 
-
 _set_boxes(21, _left_grid, "div", "left_grid_item");
 _set_boxes(60 * 48, _right_grid, "div", "right_grid_item");
+
+function _element_painting(e){
+    if (e.target.classList.contains("right_grid_item")){
+        e.target.style.backgroundColor = _selected_color;
+
+        _right_grid.addEventListener('mouseover', _element_painting);
+        _right_grid.addEventListener('mouseup', function(e){
+                    _right_grid.removeEventListener('mouseover', _element_painting);
+                });
+    };
+};
 
 _left_grid.addEventListener('click', function(e){
     if (e.target.classList.contains("left_grid_item")){
         _selected_color = e.target.style.backgroundColor;
 
+        _right_grid.addEventListener('mousedown', _element_painting);
+        
+    };
+})
 
-        _right_grid.addEventListener('mousedown', function(e){
-            if (e.target.classList.contains("right_grid_item")){
-                e.target.style.backgroundColor = _selected_color;  
+_clear_btn.addEventListener("click", function (){
+    _right_grid.removeEventListener('mousedown', _element_painting);
+    _right_grid.removeEventListener('mouseover', _element_painting);
+    let _right_grid_items = document.getElementsByClassName("right_grid_item");
 
-                _right_grid.addEventListener('mouseover', function(e){
-                    if (e.target.classList.contains("right_grid_item")){
-                        e.target.style.backgroundColor = _selected_color;  
-                    };
-                });
-
-                _right_grid.addEventListener('mouseup', function(e){
-                    if (e.target.classList.contains("right_grid_item")){
-                        _right_grid.removeEventListener('mouseover', function(e){
-                            if (e.target.classList.contains("right_grid_item")){
-                                e.target.style.backgroundColor = _selected_color;  
-                            };
-                        });
-                    };
-                });
-
-            };
-        });
-
-
-
-
-
-
+    for (item of _right_grid_items){
+        item.style.backgroundColor = "white";
     };
 })

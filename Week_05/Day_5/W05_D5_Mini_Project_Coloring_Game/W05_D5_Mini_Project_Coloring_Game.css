@@ -1,21 +1,25 @@
 * {
-    border: black solid 1px;   
+    /* border: black solid 1px;    */
     padding: 5px;
 }
 
 #game_section {
     display: flex;
     flex-direction:row;
-    background-color: lightgray;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #clear_button {
-    width: 10vw;
+    width: 13vw;
+    height: 5vh;
 };
 
 #left_section {
-    width: 15vw;
+    width: 20vw;
     height: 80vh;
+
 }
 
 .left_grid_container {
@@ -23,7 +27,9 @@
     grid-template-columns: 1fr 1fr 1fr;
     /* grid-template-rows: auto; */
     grid-gap: 3px;
-    height: 75vh;
+    height: 72vh;
+    border: black solid 1px;   
+    background-color: lightgray;
 }
 
 .right_grid_container {
@@ -33,9 +39,14 @@
     /* grid-template-rows: auto; */
     grid-gap: 1px;
     height: 80vh;
+    border: black solid 1px;   
+    background-color: lightgray;
 }
 
 .right_grid_item {
     background-color: white;
-};
+}
 
+.left_grid_item {
+    border: black solid 1px;   
+}
