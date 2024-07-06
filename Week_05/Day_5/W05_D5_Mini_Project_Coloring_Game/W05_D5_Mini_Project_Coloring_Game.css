@@ -1,3 +1,41 @@
 * {
     border: black solid 1px;   
+    padding: 5px;
 }
+
+#game_section {
+    display: flex;
+    flex-direction:row;
+    background-color: lightgray;
+}
+
+#clear_button {
+    width: 10vw;
+};
+
+#left_section {
+    width: 15vw;
+    height: 80vh;
+}
+
+.left_grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: auto; */
+    grid-gap: 3px;
+    height: 75vh;
+}
+
+.right_grid_container {
+    width: 75vw;
+    display: grid;
+    grid-template-columns: repeat(60, 1fr);
+    /* grid-template-rows: auto; */
+    grid-gap: 1px;
+    height: 80vh;
+}
+
+.right_grid_item {
+    background-color: white;
+};
+
