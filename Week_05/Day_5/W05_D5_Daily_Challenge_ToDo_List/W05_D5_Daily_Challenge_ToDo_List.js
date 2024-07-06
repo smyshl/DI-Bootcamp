@@ -10,12 +10,12 @@ function _add_element(value){
     let lable_el = document.createElement("label");
     let _hr = document.createElement("hr")
 
-    icon.setAttribute("class", "material-symbols-outlined");
+    icon.setAttribute("class", "material-symbols-outlined ");
     icon.textContent = "delete_forever";
 
     check_el.setAttribute("type", "checkbox");
     check_el.setAttribute("name", value);
-    // check_el.setAttribute("value", 'no');
+    check_el.style.fontFamily = "Rubik";
 
     lable_el.setAttribute("for", value);
     lable_el.textContent = value;
