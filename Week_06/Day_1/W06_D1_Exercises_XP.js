@@ -191,5 +191,76 @@ Instructions
     let _p = document.createElement("p");
     _p.textContent = `You will be a ${job} in ${location}, and married to ${partners_name} with ${children_num} kids.`;
     document.getElementsByTagName("body")[0].appendChild(_p);
-    console.log(children_num, partners_name, location, job);
 })(7, "Jack", "Bali", "waiter");
+
+
+/*
+Exercise 7 : Welcome
+Instructions
+John has just signed in to your website and you want to welcome him.
+    Create a Navbar in your HTML file.
+    In your js file, create a self invoking funtion that takes 1 argument: the name of the user that just signed in.
+    The function should add a div in the nabvar, displaying the name of the user and his profile picture.
+*/
+
+(function (_name) {
+    let _p = document.createElement("p");
+    let _img = document.createElement("img")
+    _p.textContent = _name;
+    _p.style.marginLeft = "auto";
+    _img.setAttribute("src", "https://kartinki.pics/uploads/posts/2022-03/1647609773_2-kartinkin-net-p-multyashnie-kartinki-kotikov-2.jpg")
+    _img.setAttribute("width", "5%");
+    _img.setAttribute("height", "5%");
+    document.getElementById("myNavbar").appendChild(_p);
+    document.getElementById("myNavbar").appendChild(_img);
+
+})("Jack-The-Cat");
+
+
+/*
+Exercise 8 : Juice Bar
+Instructions
+
+You will use nested functions, to open a new juice bar.
+Part I:
+    The outer function named makeJuice receives 1 argument: the size of the beverage the client wants - small, medium or large.
+    The inner function named addIngredients receives 3 ingredients, and displays on the DOM a sentence like The client wants a <size drink> juice, containing <first ingredient>, <second ingredient>, <third ingredient>".
+    Invoke the inner function ONCE inside the outer function. Then invoke the outer function in the global scope.
+Part II:
+    In the makeJuice function, create an empty array named ingredients.
+    The addIngredients function should now receive 3 ingredients, and push them into the ingredients array.
+    Create a new inner function named displayJuice that displays on the DOM a sentence like The client wants a <size drink> juice, containing <first ingredient>, <second ingredient>, <third ingredient>".
+    The client wants 6 ingredients in his juice, therefore, invoke the addIngredients function TWICE. Then invoke once the displayJuice function. Finally, invoke the makeJuice function in the global scope.
+*/
+
+function makeJuice(size){
+    let ingredients = [];
+
+    function addIngredients(first, second, third){
+        for (argument of arguments){
+            ingredients.push(argument);
+        };
+        let _p = document.createElement("p");
+        _p.textContent = `The client wants a ${size} juice, containing ${first}, ${second} and ${third}.`;
+        document.getElementsByTagName("body")[0].appendChild(_p);
+
+    };
+
+    addIngredients("tonic", "ice", "vodka");
+    addIngredients("tonic", "ice", "vodka");
+
+
+    function displayJuice(){
+        let _p = document.createElement("p");
+        _p.textContent = `The client wants a ${size} juice, containing ${ingredients[0]}, ${ingredients[1]} and ${ingredients[2]}.`;
+        document.getElementsByTagName("body")[0].appendChild(_p);
+    };
+
+    displayJuice()
+    
+};
+
+makeJuice("large");
+
+// Unfortunately I haven't completely understand the Part II of the last task,
+// so may be I didn't do what should have been done.
