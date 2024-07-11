@@ -5,6 +5,7 @@ body {
 #search_section_wrap {
     background-image: url(circuit-pattern.png);
     background-color: rgb(62, 60, 182);
+    min-height: 100vh;
 }    
 
 section {
@@ -30,6 +31,7 @@ nav {
     align-items: center;
     background-image: url(card-pattern.png);
     background-color: rgba(19, 199, 34, 0.692);
+    height: 7vh;
 }
 
 .robo_card {
@@ -76,9 +78,10 @@ img {
 }
 
 #search_input {
-    width: 40vw;
+    width: 35vw;
     height: 1.3rem;
     background-color: rgb(190, 198, 214);
     border: 1px solid rgba(62, 60, 182, 0.596);
     font-family: Roboto;
+    margin: auto;
 }

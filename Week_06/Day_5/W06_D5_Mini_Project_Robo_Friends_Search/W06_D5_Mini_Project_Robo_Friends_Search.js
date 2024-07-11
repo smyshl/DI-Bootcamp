@@ -112,12 +112,18 @@ function show_robots(e) {
     };
 
     let _found_robots = find_robots(_input_value);
-    put_robots_on_page(_found_robots);
+    if (_found_robots.length > 0) {
+        put_robots_on_page(_found_robots);
+    } else {
+        let _no_robot = [{}];
+        _no_robot[0].image = '';
+        _no_robot[0].name = "NO SUCH ROBOT";
+        _no_robot[0].email = '';
+        put_robots_on_page(_no_robot);
+    };
+
 
 };
 
-
-
-
-_form.addEventListener("submit", show_robots);
+// _form.addEventListener("submit", show_robots);
 _form.addEventListener("input", show_robots)
