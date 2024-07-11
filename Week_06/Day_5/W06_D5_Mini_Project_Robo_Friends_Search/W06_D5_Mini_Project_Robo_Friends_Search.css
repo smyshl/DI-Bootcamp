@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+}
+
+#search_section_wrap {
+    background-image: url(circuit-pattern.png);
+    background-color: rgb(62, 60, 182);
+}    
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+h1 {
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+    font-family: 'SEGA LOGO FONT', sans-serif;
+    font-weight: 250;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-image: url(card-pattern.png);
+    background-color: rgba(19, 199, 34, 0.692);
+}
+
+.robo_card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(62, 60, 182);
+    border-radius: .75rem;
+    margin: .5rem;
+    background-image: url(card-pattern.png);
+    background-color: rgba(36, 158, 167, 0.904);
+    align-items: center;
+    /* width: 25vw; */
+}
+
+.name_text {
+    margin-right: auto;
+    margin-left: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.email_text {
+    margin-right: auto;
+    margin-left: 1.2rem;
+    margin-top: .2rem;
+    margin-bottom: 1.5rem;
+    font-family: Roboto;
+    font-size: .7rem;
+}
+
+img {
+    background-color: rgb(38, 38, 53);
+    border : 1px solid rgb(38, 38, 53);
+    border-radius: 50%;
+    margin: 1.5rem;
+    margin-bottom: .75rem;
+    margin-top: .75rem;
+    /* height:auto; */
+    height: 15vw;
+    width: 15vw;
+}
+
+#search_input {
+    width: 40vw;
+    height: 1.3rem;
+    background-color: rgb(190, 198, 214);
+    border: 1px solid rgba(62, 60, 182, 0.596);
+    font-family: Roboto;
+}
