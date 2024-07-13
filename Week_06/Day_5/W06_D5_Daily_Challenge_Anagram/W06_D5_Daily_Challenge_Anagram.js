@@ -37,5 +37,5 @@ function is_anagram(string_1, string_2) {
 let _string_1 = 'The Morse Code';
 let _string_2 = 'Here come dots'
 
-console.log('"' + _string_1 + '" is anafram "' + _string_2 + '"?', '-', is_anagram(_string_1, _string_2));
+console.log('"' + _string_1 + '" is anagram "' + _string_2 + '"?', '-', is_anagram(_string_1, _string_2));
 
