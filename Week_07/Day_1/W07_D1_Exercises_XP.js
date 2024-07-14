@@ -57,8 +57,7 @@ Instructions
 
 let promise_1 = Promise.resolve(3);
 let promise_2 = Promise.reject("Boo!")
-promise_2
-.catch(err => console.log(err, "Boo!"));
+promise_2.catch(err => console.log(err, "Boo!"));
 console.log(promise_1, promise_2);
 
 
