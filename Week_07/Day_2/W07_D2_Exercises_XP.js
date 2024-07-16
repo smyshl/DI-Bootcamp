@@ -90,7 +90,18 @@ fetch("https://www.swapi.tech/api/starships/9/")
     Make sure to check the status of the Response and to catch any occuring errors.
 */
 
+async function get_data (url) {
+    try {
+        let response = await fetch(url);
+        if (response.ok){
+            let _json = await response.json();
+            console.log(_json.result)        
+        } else {
+            throw new Error ("Response in NOT ok")
+        };
 
-fetch("https://www.swapi.tech/api/starships/9/")
-    .then(response => response.json())
-    .then(objectStarWars => console.log(objectStarWars.result));
+    } catch (error){
+        console.log(error);
+    }
+}
+
