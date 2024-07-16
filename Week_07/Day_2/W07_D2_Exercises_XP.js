@@ -34,9 +34,8 @@ function make_url(template, query_obj){
 }
 
 _url = make_url(url_template, query_obj)
-let response_result;
 
-function get_gifs(_url){
+async function get_gifs(_url){
     fetch(_url)
     .then((response) => {
         if (response.ok) {
@@ -46,15 +45,12 @@ function get_gifs(_url){
         }
     }) 
     .then(_json => {
-        console.log(_json)
-        response_result = _json})
+        console.log(_json);
+    })
     .catch(err => console.log(err));
-}
+};
 
 get_gifs(_url);
-
-
-
 
 /*
 Exercise 2 : Giphy API
@@ -69,13 +65,11 @@ let query_obj_1 = {
     "q": "sun",
     "rating": "g",
     "api_key": "hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My",
-    "limit": 12,
-    // "offset": 2
+    "limit": 10,
+    "offset": 2
 }
 
 get_gifs(make_url(url_template, query_obj_1));
-console.log(response_result);
-
 
 /*
 Exercise 3 : Async function
@@ -95,7 +89,7 @@ async function get_data (url) {
         let response = await fetch(url);
         if (response.ok){
             let _json = await response.json();
-            console.log(_json.result)        
+            console.log(_json.result.properties)        
         } else {
             throw new Error ("Response in NOT ok")
         };
@@ -103,5 +97,6 @@ async function get_data (url) {
     } catch (error){
         console.log(error);
     }
-}
+};
 
+get_data("https://www.swapi.tech/api/starships/9/");
