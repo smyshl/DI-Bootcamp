@@ -30,39 +30,7 @@ function make_people_url(){
     return people_url_template + chosen_people;
 }
 
-// function get_data_from_api(_url){ 
-//     fetch(_url)
-//     .then(response => {
-//         if (response.ok === false) {
-//             throw new Error ('Something goes wrong with response')
-//         } else {
-//             return response.json();
-//         }
-//     })
-//     .then(_json => {
-//         if (_json.message === 'ok'){
-
-//             // console.log(_json.result.properties);
-//             // sdf = _json.result.properties
-
-//             // try {
-//             //     get_data_from_api(_json.result.properties.homeworld);
-//             // } catch {
-//             //     console.log("sdfsdfasdasfd");
-//             // }
-//             render_data(_json.result.properties);
-
-//         } else {
-//             throw new Error ('Something goes wrong')
-//         }
-//     })
-//     .catch(error => console.log(error))
-
-// };
-
 async function get_data_from_api(e){
-
-    e.preventDefault()
 
     render_data();
 
@@ -74,48 +42,34 @@ async function get_data_from_api(e){
         if (response.ok) {
             let data = await response.json();
             person_info = data.result.properties;
-            console.log(person_info);
 
             try {       // trying to fetch homeworld data from API
-
                 response = await fetch (person_info.homeworld)
                 if (response.ok) {
                     data = await response.json()
                     planet_name = data.result.properties.name
-                    console.log(planet_name);
                 }else {
                     throw new Error ("Response planet data NOT ok")
                 }
-
             } catch (error) {
                 console.log(error);
             };
 
             person_info.homeworld = planet_name;
-
             render_data(person_info)
 
         } else {
-            console.log(person_info);
             render_data(person_info);
             throw new Error ("Response character data NOT ok")
-
         }
     } catch (error) {
         console.log(error);
     };
-
 };
-
 
 function render_data(_json = 0){
 
-    // location.reload();
-
-    console.log(_json);
-
     let people_properties = Object.keys(character_info);
-    console.log(people_properties);
 
     if (_json != 0){
 
@@ -127,13 +81,6 @@ function render_data(_json = 0){
         character_info[key].innerHTML = '<i class="fa-solid fa-spinner fa-spin-pulse"></i>';
         }
     }
-
-
-
 };
-
-console.log("ХУЙ");
-
-
 
 search_button.addEventListener('click', get_data_from_api)

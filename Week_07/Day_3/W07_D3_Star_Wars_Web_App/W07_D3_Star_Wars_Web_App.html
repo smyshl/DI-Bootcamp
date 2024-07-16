@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Wars Web App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2ca3ee7d71.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="W07_D3_Star_Wars_Web_App.css">
     <script src="W07_D3_Star_Wars_Web_App.js" defer async></script>
@@ -13,12 +16,12 @@
     <section id="main_wrapper">
 
         <div id="logo_wrapper">
-            LOGO
+            <a href="https://www.starwars.com" target="_blank"><img src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png" alt=""></a>
         </div>
 
         <section id="character_section">
 
-            <div>Name: <span id="name"></span></div>
+            <div><span id="name"></span></div>
             <div>Height: <span id="height"></span></div>
             <div>Gender: <span id="gender"></span></div>
             <div>Birth year: <span id="birth_year"></span></div>
@@ -27,7 +30,7 @@
         </section>
 
         <div id="button_wrapper">
-            <button id="search_button">Find</button>
+            <button id="search_button">Find random character</button>
         </div>
 
     </section>

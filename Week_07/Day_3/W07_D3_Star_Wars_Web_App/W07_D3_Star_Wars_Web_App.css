@@ -1,6 +1,7 @@
 * {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     color: white;
+    font-family: Roboto;
 }
 
 body {
@@ -8,11 +9,46 @@ body {
     background-color: black;
 }
 
-#main_section {
+#main_wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-i {
+#logo_wrapper {
+    margin-top: 2rem;
+
+}
+
+#character_section {
+    /* width: 40vw; */
+    margin: 2rem;
+    padding: 1.5rem 6rem;
+    border: 2px white solid;
+    border-radius: 10px;
+}
+
+button {
+    border: 2px white solid;
+    border-radius: 7px;
+    background-color: black;
+    padding: .5rem;
+    font-size: .9rem;
+}
+
+img {
+    width: 25vw;
     border: none;
+}
+
+div {
+    margin: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#name {
+    margin-top: 1rem;
+    text-shadow: 2px;
+    font-weight: 600;
+    font-size: 2.5rem;
 }
