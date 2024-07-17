@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,47 @@
     <link rel="stylesheet" href="W07_D3_Daily_Challenge_Currency.css">
     <script src="W07_D3_Daily_Challenge_Currency.js" defer async></script>
 </head>
+
 <body>
 
     <h1>W07_D3_Daily_Challenge_Currency</h1>
 
-    
-    
+
+    <section id="main_wrapper">
+
+        <div id="name_logo_wrapper">
+
+            <h1>Currency Converter</h1>
+
+        </div>
+
+        <section id="form_wrapper">
+
+            <form id="my_form" action="">
+                <hr>
+                <label for="first_currency">First currency</label>
+                <select name="first_currency" id="first_currency"></select></br>
+
+                <label for="first_currency">Amount</label>
+                <input id="first_currency_amount" type="text">
+
+                <button id="switch_currencies_button" onclick="switch_currencies(event)">Switch currency</button></br>
+
+                <label for="target_currency">Target currency</label>
+                <select name="target_currency" id="target_currency"></select></br>
+
+                <label for="target_currency_amount">Result</label>
+                <input id="target_currency_amount" type="text" readonly></br>
+                <hr>
+
+                <input type="submit" value="Convert">
+
+            </form>
+
+        </section>
+
+    </section>
+
 </body>
+
 </html>
