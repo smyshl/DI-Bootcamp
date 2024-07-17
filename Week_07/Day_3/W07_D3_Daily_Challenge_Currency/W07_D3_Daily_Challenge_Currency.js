@@ -15,9 +15,11 @@ Note
 */
 
 let currencies_url = 'https://v6.exchangerate-api.com/v6/349cf1b6381ea6b5091d8832/codes';
+let exchange_rate_url_template = 'https://v6.exchangerate-api.com/v6/349cf1b6381ea6b5091d8832/pair/'
 
 let first_currency_selector = document.getElementById('first_currency');
 let target_currency_selector = document.getElementById('target_currency');
+let exchange_rate_field = document.getElementById('exchange_rate');
 
 
 function create_new_option(_arr){
@@ -38,7 +40,14 @@ function selectors_render(_currencies_array){
 
 function switch_currencies(e){
     e.preventDefault();
-    [first_currency_selector.value, target_currency_selector.value] = [target_currency_selector.value, first_currency_selector.value]
+    [first_currency_selector.value, target_currency_selector.value] = [target_currency_selector.value, first_currency_selector.value];
+    get_exchange_rate();
+}
+
+
+function get_exchange_rate(e){
+    _url = `${exchange_rate_url_template}/${first_currency_selector.value}/${target_currency_selector.value}`;
+    get_data_from_api(_url, false);
 }
 
 
@@ -46,21 +55,15 @@ async function get_data_from_api(_url, currencies = true){
 
     try {       // trying to fetch character data from API
         let response = await fetch (_url);
-        // console.log(response);
         if (response.ok) {
             let data = await response.json();
 
             if (currencies) {
                 selectors_render(data.supported_codes);
             } else {
-
-
+                exchange_rate_field.value = data.conversion_rate;
             }
-
-
-
         } else {
-
             throw new Error ("Response character data NOT ok")
         }
     } catch (error) {
@@ -68,4 +71,27 @@ async function get_data_from_api(_url, currencies = true){
     };
 };
 
+
 get_data_from_api(currencies_url);
+
+
+function get_amount(){
+    let user_input = Number(document.getElementById('first_currency_amount').value.trim());
+    if (isNaN(user_input)){
+        alert("Please enter number in 'Amount' field");
+        document.getElementById('first_currency_amount').value = 0;
+        return 0;
+    }
+    return user_input;
+}
+
+
+function convert_currencies(e){
+    e.preventDefault();
+    let _amount = get_amount();
+    document.getElementById('target_currency_amount').value = _amount * Number(exchange_rate_field.value);
+}
+
+
+first_currency_selector.addEventListener('change', get_exchange_rate);
+target_currency_selector.addEventListener('change', get_exchange_rate);

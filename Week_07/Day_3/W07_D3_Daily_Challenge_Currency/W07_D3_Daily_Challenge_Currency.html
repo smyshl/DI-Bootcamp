@@ -24,7 +24,7 @@
 
         <section id="form_wrapper">
 
-            <form id="my_form" action="">
+            <form id="my_form" action="" onsubmit="convert_currencies(event)">
                 <hr>
                 <label for="first_currency">First currency</label>
                 <select name="first_currency" id="first_currency"></select></br>
@@ -32,13 +32,15 @@
                 <label for="first_currency">Amount</label>
                 <input id="first_currency_amount" type="text">
 
-                <button id="switch_currencies_button" onclick="switch_currencies(event)">Switch currency</button></br>
+                <button id="switch_currencies_button" type="button" onclick="switch_currencies(event)">Switch currency</button></br>
 
                 <label for="target_currency">Target currency</label>
                 <select name="target_currency" id="target_currency"></select></br>
 
                 <label for="target_currency_amount">Result</label>
-                <input id="target_currency_amount" type="text" readonly></br>
+                <input id="target_currency_amount" type="text" readonly>
+                <label for="exchange_rate">Rate</label>
+                <input id="exchange_rate" type="text" readonly></br>
                 <hr>
 
                 <input type="submit" value="Convert">
