@@ -8,3 +8,27 @@ Task 3: Advanced File Operations
     In app.js, require the read-file.js module and call the function you’ve written to display the file’s content.
     Run app.js using Node.js and see the content of the file.
 */
+
+const fs = require ('fs');
+
+function read_file(){
+        let path;
+    file_list = fs.readdirSync('./');
+
+    if (file_list.find((file) => file === 'file-data.txt')){
+        path = 'file-data.txt';
+    } else {
+        path = './files/file-data.txt';
+    };
+
+    try {
+        let text = fs.readFileSync(path, 'utf-8');
+        console.log("Read from file:");
+        console.log(text);
+    } catch (error) {
+        console.log(error);
+    };
+};
+
+
+module.exports = read_file
