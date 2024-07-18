@@ -1,3 +1,5 @@
+**.gitignore
+
 **/node_modules
 **package-lock.json
 
@@ -10,3 +12,4 @@
 **/day2
 **/day3
 **/day4
+**/day5
