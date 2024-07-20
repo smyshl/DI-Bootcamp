@@ -29,9 +29,53 @@ let blog_posts = [
 ];
 
 
-
-
-
 app.listen(5000, () => {
     console.log("server is running on port:5000");
 });
+
+app.use(express.json());
+
+app.get('/posts', (req, res) => {
+    res.json(blog_posts)
+});
+
+app.get('/posts/:id', (req, res) => {
+    requested_id = Number(req.params.id);
+    requested_post = blog_posts.find((post => post.id === requested_id));
+    if (!requested_post) return res.send(404, `No product with id ${requested_id}`);
+    res.json(requested_post);
+});
+
+app.post('/posts', (req, res) => {
+    let new_id = Number(blog_posts.at(-1).id + 1);
+    let new_post = {
+        id: new_id,
+        title: req.body.title,
+        content: req.body.content
+    };
+    blog_posts.push(new_post);
+    res.status(201).json(new_post);
+    console.log(blog_posts);
+})
+
+app.put('/posts/:id', (req, res) => {
+    requested_id = Number(req.params.id);
+    requested_post = blog_posts.find((post => post.id === requested_id));
+    if (!requested_post) return res.status(404).send(`Got a PUT request. No product with id ${requested_id}`);
+
+    let updated_post = {
+        id: requested_id,
+        title: req.body.title,
+        content: req.body.content
+    };
+
+    blog_posts[requested_id] = updated_post;
+
+    res.status(200).json(updated_post);
+    console.log(blog_posts);
+
+})
+
+app.delete('/user', (req, res) => {
+    res.send('Got a DELETE request')
+})
