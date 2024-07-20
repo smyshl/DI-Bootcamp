@@ -26,3 +26,37 @@ let books = [
 app.listen(5000, () => {
     console.log("server is running on port:5000");
 });
+
+app.use(express.json());
+
+
+app.get('/api/books', (req, res) => {
+    res.json(books)
+});
+
+
+app.get('/api/books/:bookId', (req, res) => {
+    requested_id = Number(req.params.bookId);
+    requested_book = books.find((post => post.id === requested_id));
+    if (!requested_book) return res.status(404).send('Book not found');
+    res.json(requested_book);
+});
+
+
+app.post('/api/books', (req, res) => {
+    let new_id = Number(books.at(-1).id + 1);
+    let new_book = {
+        id: new_id,
+        title: req.body.title,
+        content: req.body.author,
+        publishedYear: req.body.publishedYear
+    };
+    books.push(new_book);
+    res.status(201).json(new_book);
+    console.log(books);
+});
+
+
+app.get("*", (req, res) => {
+    res.send("404 - this page doesn't exist");
+  });

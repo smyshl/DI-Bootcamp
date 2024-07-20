@@ -9,9 +9,25 @@ Part 1: Setting Up the Express Server
 */
 
 const express = require ('express');
+const fetchPosts = require ('./data/dataService.js');
 
 const app = express();
 
 app.listen(5000, () => {
     console.log("server is running on port:5000");
 });
+
+
+app.get('/api/posts', (req, res) => {
+    fetchPosts()
+    .then(response => {
+        res.status(200).json(response.data);
+        console.log("Response 200 - Data successfully retrieved")})
+    .catch(error => console.log("Something goes wrong", error));
+    
+});
+
+
+app.get("*", (req, res) => {
+    res.send("404 - this page doesn't exist");
+  });

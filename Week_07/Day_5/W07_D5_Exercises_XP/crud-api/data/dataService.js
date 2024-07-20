@@ -6,9 +6,10 @@
  */
 
 const axios = require ('axios');
+const { response } = require('express');
 
 function fetchPosts(){
-
+    return axios('https://jsonplaceholder.typicode.com/posts')
 }
 
 
