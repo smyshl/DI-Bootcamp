@@ -1,12 +1,23 @@
-* {
-    border: 1px solid black;
+#main_wrapper {
+    margin: 2%;
+    width: 63vw;
+    align-items: center;
+    border: 1px solid black; 
 }
 
 #main_section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 10px;
+    justify-content: space-evenly;
+    margin: 2%;
+    width: 60vw;
+}
+
+#name_logo {
+    text-align: center;
+    margin: 2%;
+    width: 60vw;
 }
 
 #emoji_place{
@@ -26,16 +37,15 @@ form * {
     padding: 5px;
 }
 
-form {
-    /* display: flex;
-    flex-direction: column; */
-}
-
 label {
     margin-left: 0;
 }
 
 #submit_button {
     margin-left: 30%;
-    /* margin-right: 30%; */
+}
+
+#score_wrapper {
+    margin: 20px;
+    padding: 10px;
 }

@@ -9,7 +9,6 @@ async function get_emogi(){
     try {
         let random_emoji = await fetch('http://localhost:5000/api/emoji');
         let random_emoji_json = await random_emoji.json();
-        // console.log(random_emoji_json);
         render_emoji(random_emoji_json);
     } catch (error) {
         console.log(error);        
@@ -19,11 +18,9 @@ async function get_emogi(){
 
 function render_emoji(_emoji_json){
     emoji_place.textContent = _emoji_json.char;
-    // console.log((_radios));
     for (let i = 0; i < _radios.length; i++) {
         _radios[i].labels[0].textContent = _emoji_json.name[i];
         _radios[i].value = _emoji_json.name[i];
-        // console.log(i, _radios[i].labels[0].textContent, _radios[i].checked);
     };
 }
 
@@ -37,7 +34,6 @@ async function get_best_score(){
     try {
         let _best_score = await fetch('http://localhost:5000/api/score');
         let _best_score_json = await _best_score.json();
-        console.log(_best_score_json);
         render_best_score(_best_score_json.best_score);
     } catch (error) {
         console.log(error);        
@@ -46,7 +42,6 @@ async function get_best_score(){
 
 
 function render_best_score(_best_score){
-    console.log(_best_score);
     best_score_place.textContent = _best_score;
 }
 
@@ -91,7 +86,6 @@ async function check_answer(char, name){
 
 async function check_best_score(_score){
     let _body = {"score": _score}
-    console.log(_body);
     try {
         let _response = await fetch('http://localhost:5000/api/score', {
             method: 'PUT',
@@ -134,9 +128,7 @@ function submit_my_form(e){
     })
     .catch(error => console.log(error));
 
-
     get_emogi();
-
 
 };
 

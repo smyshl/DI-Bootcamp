@@ -47,23 +47,7 @@ app.put('/api/score', (req, res) => {
     } else {
       res.json({"new_record": false});
     }
-
-  // res.send(best_score);
 });
-
-// app.post('/api/books', (req, res) => {
-//     let new_id = Number(books.at(-1).id + 1);
-//     let new_book = {
-//         id: new_id,
-//         title: req.body.title,
-//         content: req.body.author,
-//         publishedYear: req.body.publishedYear
-//     };
-//     books.push(new_book);
-//     res.status(201).json(new_book);
-//     console.log(books);
-// });
-
 
 
 app.get("*", (req, res) => {
