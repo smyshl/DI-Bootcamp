@@ -32,7 +32,7 @@ function get_random_emoji(_emojies){
     let random_emoji = _emojies[random_emoji_index];
     let emoji_with_answers = {"char": random_emoji.char, "group": random_emoji.group, "name": [random_emoji.name]};
 
-    // I want to get 3 incorrect names, two from same group and one from different
+    // I wanted to get 3 incorrect names, two from same group and one from different
     // there is some hard coding, but I couldn't think of anything better
     
     let filtered_emojies = lodash.shuffle(emojies.filter((item) => item.group === random_emoji.group && item.char != random_emoji.char));
@@ -53,12 +53,11 @@ function get_random_emoji(_emojies){
 function check_emoji(_emoji_char, _answer){
     let target_emoji = emojies.find((item) => item.char === _emoji_char);
     if (target_emoji.name.toLowerCase() === _answer.toLowerCase()){
-        return true;
+        return [true, target_emoji.name];
     } else {
-        return false;
+        return [false, target_emoji.name];
     }
 };
-
 
 
 module.exports = {

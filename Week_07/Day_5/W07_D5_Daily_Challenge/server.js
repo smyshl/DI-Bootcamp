@@ -1,5 +1,7 @@
+const fs = require ('fs');
 const express = require ('express');
-const {emojies, get_random_emoji, check_emoji} = require ('./emoji.js')
+const {emojies, get_random_emoji, check_emoji} = require ('./emoji.js');
+let best_score = JSON.parse(fs.readFileSync('./score.json', 'utf-8'));
 
 app = express();
 
@@ -23,14 +25,31 @@ app.get('/api/emoji', (req, res) => {
 
 
 app.post('/api/emoji', (req, res) => {
-    if (check_emoji(req.body.char, req.body.name)){
+    let _check_emoji = check_emoji(req.body.char, req.body.name);
+    if (_check_emoji[0]){
         res.json({"result": true})
     } else {
-        res.json({"result": false})
+        res.json({"result": false, "right_answer": _check_emoji[1]})
     };
-  // res.json(get_random_emoji(emojies));
 });
 
+
+app.get('/api/score', (req, res) => {
+    res.json(best_score);
+});
+
+
+app.put('/api/score', (req, res) => {
+    let _score = Number(req.body.score);
+    if (_score > Number(best_score.best_score)){
+      fs.writeFileSync('./score.json', `{"best_score": ${_score}}`, 'utf-8');
+      res.json({"new_record": true, "best_score": _score});
+    } else {
+      res.json({"new_record": false});
+    }
+
+  // res.send(best_score);
+});
 
 // app.post('/api/books', (req, res) => {
 //     let new_id = Number(books.at(-1).id + 1);
