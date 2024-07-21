@@ -51,8 +51,8 @@ function get_random_emoji(_emojies){
 
 
 function check_emoji(_emoji_char, _answer){
-    let target_emoji = _emojies.find((item) => item.char === _emoji_char);
-    if (target_emoji.name.toLowerCase() === _answer.toLowerCase){
+    let target_emoji = emojies.find((item) => item.char === _emoji_char);
+    if (target_emoji.name.toLowerCase() === _answer.toLowerCase()){
         return true;
     } else {
         return false;

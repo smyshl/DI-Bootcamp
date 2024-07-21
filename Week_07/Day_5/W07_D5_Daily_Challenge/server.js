@@ -1,4 +1,5 @@
 const express = require ('express');
+const {emojies, get_random_emoji, check_emoji} = require ('./emoji.js')
 
 app = express();
 
@@ -16,9 +17,19 @@ app.get("/home", (req, res) => {
 });
 
 
-// app.get('/api/emoji', (req, res) => {
-//     res.json(books)
-// });
+app.get('/api/emoji', (req, res) => {
+    res.json(get_random_emoji(emojies));
+});
+
+
+app.post('/api/emoji', (req, res) => {
+    if (check_emoji(req.body.char, req.body.name)){
+        res.json({"result": true})
+    } else {
+        res.json({"result": false})
+    };
+  // res.json(get_random_emoji(emojies));
+});
 
 
 // app.post('/api/books', (req, res) => {
