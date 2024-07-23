@@ -1,6 +1,7 @@
 **/node_modules
 **package-lock.json
 **.env
+**/daily-register-login
 
 **/D1
 **/D2

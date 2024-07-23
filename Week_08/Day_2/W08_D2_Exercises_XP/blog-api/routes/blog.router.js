@@ -1,3 +1,5 @@
+const { _getAllPosts  } = require ("../models/blog.model.js");
+
 
 
 // Implement the following routes using Express:
