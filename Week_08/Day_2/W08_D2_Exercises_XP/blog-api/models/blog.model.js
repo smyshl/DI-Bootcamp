@@ -2,7 +2,7 @@ const { dbase } = require ("../config/db.js");
 
 
 const _getAllPosts = () => {
-    return dbase("blog").select("id", "title", "content").orderBy("id");
+    return dbase("posts").select("id", "title", "content").orderBy("id");
 };
 
 

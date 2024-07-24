@@ -1,4 +1,9 @@
-const { _getAllPosts  } = require ("../models/blog.model.js");
+const { getAllPosts  } = require ('../controllers/blog.controller.js');
+const express = require ('express');
+
+const router = express.Router();
+
+router.get('/', getAllPosts);
 
 
 
@@ -9,3 +14,5 @@ const { _getAllPosts  } = require ("../models/blog.model.js");
 // PUT /posts/:id: Update an existing blog post.
 
 // DELETE /posts/:id: Delete a blog post.
+
+module.exports = router;
