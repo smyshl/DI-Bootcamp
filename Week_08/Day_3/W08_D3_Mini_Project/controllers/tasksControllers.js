@@ -1,2 +1,3 @@
-const tasksModel = require ('../models/tasksModel.js');
+const tasksModels = require ('../models/tasksModels.js');
 
+tasksModels.createTask({"sdfsfd": "sdfsdf"});
