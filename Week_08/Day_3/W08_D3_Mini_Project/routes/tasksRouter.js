@@ -1,4 +1,12 @@
 const express = require ('express');
-const tasksController = require ('../controllers/tasksController.js');
+const tasksControllers = require ('../controllers/tasksControllers.js');
 
+const router = express.Router();
 
+router.post('/', tasksControllers.createTask);
+
+router.get('/', tasksControllers.getAllTasks);
+
+router.get('/:id', tasksControllers.getTaskById);
+
+module.exports = router;

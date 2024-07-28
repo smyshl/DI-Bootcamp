@@ -21,17 +21,33 @@ function get_new_id () {
 
 
 module.exports = {
-    createTask: async (task_json) => {
+    createTask: (task_json) => {
         const id = get_new_id();
         const db_data = db.dbRead();
-
         const new_task = {...task_json, id}
-
         db_data.push(new_task)
-
-        console.log(db_data);
         db.dbWrite(db_data);
+        return new_task;
+    },
+
+    getAllTasks: () => {
+        return db.dbRead();
+    },
+
+    getTaskById: (id) => {
+        const db_data = db.dbRead();
+        index = db_data.findIndex((element) => element.id == id);
+        return [index, db_data[index]];
+    },
+
+    updateTask: (index, task_json) => {
+        const db_data = db.dbRead();
+        db_data[index] = task_json
+        db.dbWrite(db_data);
+        return db_data[index];
+
 
     }
+
 
 }
