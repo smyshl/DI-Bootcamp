@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import UserFavoriteAnimals from './UserFavoriteAnimals.js'
+import Exercise from './Exercise3.js';
+import './Exercise.css'
 
 const myelement = <h1>I Love JSX!</h1>;
 
@@ -21,6 +23,7 @@ function App() {
       <h3>{user.firstName}</h3>
       <h3>{user.lastName}</h3>
       <UserFavoriteAnimals  favAnimals={user.favAnimals}/>
+      <Exercise />
 
     </div>
   );
