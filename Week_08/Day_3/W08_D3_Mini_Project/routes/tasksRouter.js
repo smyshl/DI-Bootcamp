@@ -9,4 +9,6 @@ router.get('/', tasksControllers.getAllTasks);
 
 router.get('/:id', tasksControllers.getTaskById);
 
+router.put('/:id', tasksControllers.updateTask);
+
 module.exports = router;

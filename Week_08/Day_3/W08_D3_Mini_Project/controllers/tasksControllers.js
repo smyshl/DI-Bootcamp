@@ -22,7 +22,7 @@ module.exports = {
 
     getTaskById: async (req, res) => {
         try {
-            const {id} = req.params;
+            const {id} = Number(req.params);
             task = tasksModels.getTaskById(id);
             if (task[1]) {
                 res.json(task[1]);
@@ -36,9 +36,17 @@ module.exports = {
 
     updateTask: async (req, res) => {
         try {
-            
+            const {id} = Number(req.params);
+            updated_data = {...req.body, id};
+            old_task = tasksModels.getTaskById(id);
+            if (old_task[1]) {
+                console.log(updated_data);
+                res.json(tasksModels.updateTask(old_task[0], updated_data));
+            } else {
+                throw new Error ("No task found")
+            }
         } catch (error) {
-            
+            res.json({"message": error.message});
         }
     }
 }
