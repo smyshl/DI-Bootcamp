@@ -36,19 +36,22 @@ module.exports = {
 
     getTaskById: (id) => {
         const db_data = db.dbRead();
-        index = db_data.findIndex((element) => Number(element.id) == id);
+        index = db_data.findIndex((element) => element.id == id);
         return [index, db_data[index]];
     },
 
     updateTask: (index, task_json) => {
-        console.log(index, task_json);
         const db_data = db.dbRead();
         db_data[index] = task_json
         db.dbWrite(db_data);
         return db_data[index];
+    },
 
-
+    deleteTask: (index) => {
+        const db_data = db.dbRead();
+        const [deleted_task] = db_data.splice(index, 1);
+        db.dbWrite(db_data);
+        return deleted_task;
     }
-
 
 }

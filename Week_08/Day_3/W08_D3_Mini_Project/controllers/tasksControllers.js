@@ -22,8 +22,9 @@ module.exports = {
 
     getTaskById: async (req, res) => {
         try {
-            const {id} = Number(req.params);
-            task = tasksModels.getTaskById(id);
+            const {id} = req.params;
+            console.log(id);
+            task = tasksModels.getTaskById(Number(id));
             if (task[1]) {
                 res.json(task[1]);
             } else {
@@ -36,11 +37,11 @@ module.exports = {
 
     updateTask: async (req, res) => {
         try {
-            const {id} = Number(req.params);
+            let {id} = req.params;
+            id = Number(id);
             updated_data = {...req.body, id};
             old_task = tasksModels.getTaskById(id);
             if (old_task[1]) {
-                console.log(updated_data);
                 res.json(tasksModels.updateTask(old_task[0], updated_data));
             } else {
                 throw new Error ("No task found")
@@ -48,5 +49,21 @@ module.exports = {
         } catch (error) {
             res.json({"message": error.message});
         }
-    }
+    },
+
+    deleteTask: async (req, res) => {
+        try {
+            let {id} = req.params;
+            id = Number(id);
+            task_to_delete = tasksModels.getTaskById(id);
+            if (task_to_delete[1]) {
+                res.json(tasksModels.deleteTask(task_to_delete[0]));
+            } else {
+                throw new Error ("No task found")
+            }
+        } catch (error) {
+            res.json({"message": error.message});
+        }
+    },
+
 }
