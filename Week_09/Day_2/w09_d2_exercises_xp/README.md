@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+Exercise 1 : Car and components
+Instructions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Part I : A Car Component
 
-## Available Scripts
+    In App.js create an object const carinfo = {name: "Ford", model: "Mustang"};
 
-In the project directory, you can run:
+    In your React app create a new folder in the src path, name it Components. It should contain a Functional Component named Car.js.
 
-### `npm start`
+    In the Car.js component render a header with the carInfo model, for example This car is <model>.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    Import the Car.js component to the App.js.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Part II : useState Hook
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    Use the state hook in the Car component to add a color variable to the state.
 
-### `npm run build`
+    Return the color property, for example This car is <color> <model>.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Part III : Garage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    Create another Functional Component inside your Components folder, called Garage.js.
 
-### `npm run eject`
+    Use an attribute to pass a size to the Garage component, <Garage size="small" />.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    Use the Garage component inside the Car component and pass the size ‘small’. The Garage component should render Who lives in my <size> Garage?
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Exercise 2 : Events
+Instructions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Part I:
 
-## Learn More
+    Create a new Functional component named Events.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    Create an arrow function called clickMe. It should alert the string ‘I was clicked’.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    In the return, create a button that when clicked on, calls the clickMe function. Use the onClick event handler.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Part II:
 
-### Making a Progressive Web App
+    In the Events Functional component, in the return, create an input tag that has an onKeyDown event handler, that listens to a function called handleKeyDown.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    When you type something in the input field and press the ‘Enter key’, the handleKeyDown function will check if the ‘Enter key’ was pressed and will alert a message with the input text value:
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+Part III:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    In the Events Functional component, using the state hook, declare a state variable named isToggleOn and set it to true.
 
-### `npm run build` fails to minify
+    In the return, create a button that has an onClick event that will switch the state variable between ‘ON’ and ‘OFF’
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Create a function that will be called by the onClick event handler. In the function you should toggle the value of the isToggleOn state variable.
+
+
+Exercise 3 : Phone and components
+Instructions
+
+Part I : Phone
+
+    Create a new Functional Component named Phone. Use the state hook to create the following state variables:
+
+    brand: "Samsung"
+    model: "Galaxy S20"
+    color: "black"
+    year: 2020
+
+
+    In the return of the Phone component, display the values of the state variables.
+
+    Import the Phone component and display it in your App.js.
+
+
+
+Part II : Change the Phone
+
+    In the Phone component create a function named changeColor that updates the state variable to ‘blue’
+
+    In the return, add a button with an onClick event that will call the changeColor function to change the color state variable.
+
+
+
+Exercise 4 : useEffect hook
+Instructions
+
+    Create a new Functional Component named Color, with a state variable favoriteColor which value is “red”.
+
+    Output the value in a header tag.
+
+    Note : The useEffect() hook is called after the component is rendered.
+    In the useEffect(), alert “useEffect reached”
+
+    Note: The return is called when a component gets updated. It re-renders the DOM, with the new changes.
+    Create a button that when clicked on, calls a function that changes the value of the favoriteColor property to “blue”.
+
