@@ -1,25 +1,63 @@
-import logo from './logo.svg';
+import React from 'react';
+import ErrorBoundary from './ErrorBoundary';
+import Color from './Color';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+
+class BuggyCounter extends React.Component{
+    constructor(){
+        super();
+        this.state = {counter: 0};
+    }
+
+    handleClick = () => {
+
+            this.setState({counter: this.state.counter + 1});
+
+    };
+
+
+    render(){
+
+
+            //             if (this.state.counter > 5) {
+            //     throw new Error ('I crashed!');
+            // };
+
+
+        return(
+            <>
+            <h3>Counter</h3>
+            <span id='counter'>{this.state.counter}</span> <button onClick={this.handleClick}>+</button>
+            </>
+        )
+
+
+    };
+
+};
+
+
+function App(){
+
+    return (
+        <div>
+        {/* <ErrorBoundary>  */}
+            <BuggyCounter />
+        {/* </ErrorBoundary>                */}
+            <BuggyCounter />
+
+
+            <Color />
+
+
+
+
+
+        
+        </div>
+    )
+};
 
 export default App;
