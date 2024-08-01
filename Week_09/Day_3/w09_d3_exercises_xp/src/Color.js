@@ -14,7 +14,6 @@ class Child extends React.Component{
         return (
             <>
             <h3>Hello World!</h3>
-            
             </>
         )
     }
@@ -26,7 +25,6 @@ class Color extends React.Component{
         super();
         this.state = {favoriteColor: "red", show: true};
     }
-
 
     changeColor = () => {
         this.setState({favoriteColor: "blue"});
@@ -54,14 +52,12 @@ class Color extends React.Component{
 
     return (
         <>
-        
         <h2>My favorite color is {this.state.favoriteColor}</h2>
         <button onClick={this.changeColor}>Change color</button><br />
 
         {this.state.show ? <Child /> : <br />}
 
         <button onClick={() => this.setState({show: !this.state.show})}>{this.state.show ? "Unmount" : "Mount"}</button>
-        
         </>
     )
 }
