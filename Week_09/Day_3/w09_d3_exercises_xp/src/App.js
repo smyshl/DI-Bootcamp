@@ -35,7 +35,7 @@ function App(){
     return (
         <div>
         <p>I don't why, but it seems that error in counters handled not completely correctly.<br></br>
-            I throw error and it gets caught and correctly rendered in ErrorBoundary component.<br></br>
+            I throw an error and it gets caught and correctly rendered in ErrorBoundary component.<br></br>
             But I still have uncaught error message.</p>
 
         <ErrorBoundary > 
