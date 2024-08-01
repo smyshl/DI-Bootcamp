@@ -11,7 +11,9 @@ function FormComponent(){
           <div>
             <input type="text" id="firstName" placeholder="First Name" />
           </div>
+           <div>
           <input type="text" id="secondtName" placeholder="Second Name" />
+          </div>
           <div>
             <input type="text" id="age" placeholder="Age" />
           </div>
@@ -70,8 +72,8 @@ function FormComponent(){
               <label for="vegan">Vegan</label>
             </div>
           </fieldset>
-          <div>
-              <input type="submit" id="vegan" name="diet" value="Submit" />
+          <div id="submit">
+              <input type="submit" id="submit_button"value="Submit" />
              </div>
         </form>
       </section>

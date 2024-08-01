@@ -36,39 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-div {
-  margin: 7px;
-}
-
-header {
-  padding: 15px;
-  padding-bottom: 25px;
-}
-
-form {
-  border: 1px black solid;
-  padding: 15px;
-  padding-right: 20px;
-}
-
-#submit {
-  margin-top: 20px;
-  text-align: center;
-}
-
-#submit_button {
-  padding: 7px 15px;
-}
-
-legend {
-  margin-top: 7px;
-}
