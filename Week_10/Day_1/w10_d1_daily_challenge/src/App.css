@@ -64,3 +64,13 @@ button {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+#table {
+  margin-left: 20%;
+  margin-right: 30%;
+}
+
+th {
+  padding-left: 15px;
+  padding-right: 15px;
+}
