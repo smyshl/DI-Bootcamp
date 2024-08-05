@@ -37,7 +37,7 @@ function Exercise_3() {
     return (
         <TasksContext.Provider value={{state, dispatch}}>
             <div>
-                <h2 style={{ textDecoration: 'underline' }}>Exercise 3. Todo List</h2>
+                <h2 style={{ textDecoration: 'underline' }}>Enhanced Task Manager</h2>
             </div>
             <TaskInput />
             <TaskList />
