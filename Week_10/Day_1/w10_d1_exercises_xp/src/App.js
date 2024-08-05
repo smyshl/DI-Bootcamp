@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import Exercise_1 from './components/Exercise_1.js';
 import Exercise_2 from './components/Exercise_2.js';
+import Exercise_3 from './components/Exercise_3.js';
 
 
 export const ThemeContext = createContext();
@@ -40,6 +41,7 @@ function App() {
       <Routes>
         <Route path="/exercise1" element={<ErrorBoundary><Exercise_1 /></ErrorBoundary>} />
         <Route path="/exercise2" element={<ErrorBoundary><Exercise_2 /></ErrorBoundary>} />
+        <Route path="/exercise3" element={<ErrorBoundary><Exercise_3 /></ErrorBoundary>} />
       </Routes>
 
 

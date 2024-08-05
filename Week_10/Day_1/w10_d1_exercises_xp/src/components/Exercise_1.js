@@ -1,6 +1,4 @@
-import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 import { ThemeChanger } from './ThemeChanger';
-
 
 
 function Exercise_1() {
@@ -8,7 +6,7 @@ function Exercise_1() {
     return (
         <>
         <div>
-            <h2 style={{ textDecoration: 'underline' }}>Exercise 1</h2>
+            <h2 style={{ textDecoration: 'underline' }}>Exercise 1. Theme switcher</h2>
         </div>
 
         <ThemeChanger />
