@@ -7,15 +7,12 @@ export default function TaskInput(){
     const { dispatch } = useContext(TasksContext);
     const inputRef = useRef();
 
-    console.log(dispatch);
-    
-
     const addTask = () => {
         const task_name = inputRef.current.value;
         dispatch({ type: ADD_TASK, payload: task_name });
         inputRef.current.value = '';
-    }
-
+        inputRef.current.focus();
+    };
 
     return (
         <>

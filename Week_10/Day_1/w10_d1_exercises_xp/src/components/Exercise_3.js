@@ -19,12 +19,13 @@ export const TasksContext = createContext();
 export function tasksReducer (state, action) {
     switch (action.type) {
         case ADD_TASK:
-            const all_tasks = [...state.tasks];
-            all_tasks.push({id: uuid4(), name: action.payload, completed: false})
-        return {...state, tasks: all_tasks};
-    
-        default:
-            break;
+            const allTasks = [...state.tasks];
+            allTasks.push({id: uuid4(), name: action.payload, completed: false})
+        return {...state, tasks: allTasks};
+
+        case DELETE_TASK:
+            const notCompletedTasks = state.tasks.filter((item) => item.id !== action.payload);
+            return {...state, tasks: notCompletedTasks}; 
     }
 }
 
@@ -35,13 +36,11 @@ function Exercise_3() {
 
     return (
         <TasksContext.Provider value={{state, dispatch}}>
-        <div>
-            <h2 style={{ textDecoration: 'underline' }}>Exercise 3. Todo List</h2>
-        </div>
-        <TaskInput />
-        <TaskList />
-
-
+            <div>
+                <h2 style={{ textDecoration: 'underline' }}>Exercise 3. Todo List</h2>
+            </div>
+            <TaskInput />
+            <TaskList />
         </TasksContext.Provider>
     )
 };

@@ -59,3 +59,8 @@ ul h2 {
   margin-top: 0;
   color: #61dafb;
 }
+
+button {
+  margin-left: 10px;
+  margin-right: 10px;
+}

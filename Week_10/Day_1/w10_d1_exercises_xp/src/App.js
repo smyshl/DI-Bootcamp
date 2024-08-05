@@ -35,16 +35,12 @@ function App() {
         </ul>
         </nav>
 
-
-
-
       <Routes>
         <Route path="/exercise1" element={<ErrorBoundary><Exercise_1 /></ErrorBoundary>} />
         <Route path="/exercise2" element={<ErrorBoundary><Exercise_2 /></ErrorBoundary>} />
         <Route path="/exercise3" element={<ErrorBoundary><Exercise_3 /></ErrorBoundary>} />
       </Routes>
-
-
+      
     </div>
     </ThemeContext.Provider>
   );
