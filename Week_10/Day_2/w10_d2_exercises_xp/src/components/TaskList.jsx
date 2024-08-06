@@ -1,12 +1,13 @@
-import { useContext } from "react"
-import { TasksContext } from "./Exercise_3.js"
-import TaskDelete from "./TaskDelete.js";
-import TaskComplete from "./TaskComplete.js";
-import TaskEdit from "./TaskEdit.js";
+import { connect } from "react-redux";
+
+import TaskDelete from "./TaskDelete.jsx";
+import TaskComplete from "./TaskComplete.jsx";
+import TaskEdit from "./TaskEdit.jsx";
 
 
-export default function TaskList(){
-    const { state } = useContext(TasksContext);
+
+export default function TaskList(props){
+
 
     return (
         <div id="taskListWrapper">
@@ -25,7 +26,7 @@ export default function TaskList(){
                 <tbody>
 
                 {
-                state.tasks.map((item, index) => {
+                props.tasks.map((item, index) => {
                     return (
                     <tr key={item.id}>
                         <td>{index + 1}</td>
@@ -36,9 +37,14 @@ export default function TaskList(){
                     </tr>                    
                 )})
             }
+
                 </tbody>
+
             </table>
 
         </div>
     )
 };
+
+
+co

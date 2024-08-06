@@ -1,7 +1,7 @@
-import ErrorBoundary from './components/ErrorBoundary.js';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 import logo from './logo.svg';
 import './App.css';
-// import Exercise_3 from './components/Exercise_3.js';
+import TaskApp from './components/TaskApp.jsx';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <h1>Week 10 Day 2 Exercises XP</h1>
       </header>        
 
-      {/* <ErrorBoundary><Exercise_3 /></ErrorBoundary> */}
+      <ErrorBoundary><TaskApp /></ErrorBoundary>
 
     </div>
   );
