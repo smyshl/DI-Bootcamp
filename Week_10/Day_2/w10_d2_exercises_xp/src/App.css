@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 7vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* font-size: calc(10px + 2vmin); */
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+nav {
+  height: min-content;
+}
+
+
+ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  /* justify-content: start; */
+}
+
+li {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+ul h2 {
+  margin-top: 0;
+  color: #61dafb;
+}
+
+button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* #table {
+  margin-top: 15px;
+  margin-left: 15%;
+  margin-right: 30%;
+} */
+
+th {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+td {
+  height: 47px;
+}
+
+#tableHeaderName  {
+  padding-left: 70px;
+  padding-right: 70px;  
+}
+
+#tableHeaderEdit {
+  padding-left: 80px;
+  padding-right: 80px;  
+}
+
+#taskListWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tableNameCol {
+  text-align: left;
+}
