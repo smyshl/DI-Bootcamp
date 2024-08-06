@@ -1,26 +1,22 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import { COMPLETE_TASK, TasksContext } from "./Exercise_3";
 
 
 export default function TaskComplete ({props}) {
 
     const { dispatch } = useContext(TasksContext);
+    const [ taskCompleted, setTaskCompleted ] = useState(props.completed)
 
     const checkBoxRef = useRef();
-
-    // inputRef.current.checked = props.completed;
-
-    // console.log(props.completed);
     
-
     const completeTask = () => {
-        // console.log(checkBoxRef.current.value);
-        // setInterval(() => checkBoxRef.current.checked = !checkBoxRef.current.checked, 1000)
-        // checkBoxRef.current.checked = !checkBoxRef.current.checked
-        
-        const taskStatus = checkBoxRef.current.checked;
-        dispatch({ type: COMPLETE_TASK, payload: {id: props.id, completed: taskStatus} });
-    };    
+        setTaskCompleted(checkBoxRef.current.checked);
+        dispatch({ type: COMPLETE_TASK, payload: {id: props.id, completed: taskCompleted} });
+    };
+
+    useEffect(() => {
+        checkBoxRef.current.checked = taskCompleted;
+    }, [taskCompleted])
 
     return (
         <>

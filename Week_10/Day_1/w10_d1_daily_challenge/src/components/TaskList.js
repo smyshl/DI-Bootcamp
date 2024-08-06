@@ -2,22 +2,23 @@ import { useContext } from "react"
 import { TasksContext } from "./Exercise_3.js"
 import TaskDelete from "./TaskDelete.js";
 import TaskComplete from "./TaskComplete.js";
+import TaskEdit from "./TaskEdit.js";
 
 
 export default function TaskList(){
     const { state } = useContext(TasksContext);
 
     return (
-        <>
-            <h3>Tasks List</h3>
+        <div id="taskListWrapper">
+            {/* <h3>Tasks List</h3> */}
 
             <table>
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
+                        <th id="tableHeaderName">Name</th>
                         <th>Completed</th>
-                        <th>Edit</th>
+                        <th id="tableHeaderEdit">Edit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -28,9 +29,9 @@ export default function TaskList(){
                     return (
                     <tr key={item.id}>
                         <td>{index + 1}</td>
-                        <td>{item.name}</td>
+                        <td className="tableNameCol">{item.name}</td>
                         <td><TaskComplete props={{id: item.id, completed: item.completed}} /></td>
-                        <td>-</td>
+                        <td><TaskEdit props={{id: item.id, name: item.name}}/></td>
                         <td><TaskDelete id={item.id}/></td>
                     </tr>                    
                 )})
@@ -50,6 +51,6 @@ export default function TaskList(){
                     </div>                    
                 )})
             } */}
-        </>
+        </div>
     )
 };

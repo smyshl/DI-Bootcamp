@@ -12,7 +12,18 @@ export const COMPLETE_TASK = "complete_task";
 export const EDIT_TASK = "edit_task";
 
 export const initialState = {
-    tasks: [],
+    tasks: [
+        {
+            id: 1,
+            name: "To do Exercises XP",
+            completed: true,
+        },
+        {
+            id: 2,
+            name: "To do Daily Challenge",
+            completed: false,
+        },
+    ],
 }
 
 export const TasksContext = createContext();
@@ -20,8 +31,9 @@ export const TasksContext = createContext();
 
 export function tasksReducer (state, action) {
     let allTasks;
+    let taskIndex;
+
     switch (action.type) {
-        
         case ADD_TASK:
             allTasks = [...state.tasks];
             allTasks.push({id: uuid4(), name: action.payload, completed: false})
@@ -33,11 +45,15 @@ export function tasksReducer (state, action) {
 
         case COMPLETE_TASK:
             allTasks = [...state.tasks];
-            console.log(action.payload);
-            
-            const taskIndex = allTasks.findIndex((item) => item.id === action.payload.id);
+            taskIndex = allTasks.findIndex((item) => item.id === action.payload.id);
             allTasks[taskIndex].completed = action.payload.completed;
             return {...state, tasks: allTasks}; 
+
+        case EDIT_TASK:
+            allTasks = [...state.tasks];
+            taskIndex = allTasks.findIndex((item) => item.id === action.payload.id);
+            allTasks[taskIndex].name = action.payload.name;
+            return {...state, tasks: allTasks};             
 
     }
 }

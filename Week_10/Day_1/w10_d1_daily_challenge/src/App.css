@@ -65,12 +65,37 @@ button {
   margin-right: 10px;
 }
 
-#table {
-  margin-left: 20%;
+/* #table {
+  margin-top: 15px;
+  margin-left: 15%;
   margin-right: 30%;
-}
+} */
 
 th {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+td {
+  height: 47px;
+}
+
+#tableHeaderName  {
+  padding-left: 70px;
+  padding-right: 70px;  
+}
+
+#tableHeaderEdit {
+  padding-left: 80px;
+  padding-right: 80px;  
+}
+
+#taskListWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tableNameCol {
+  text-align: left;
 }
