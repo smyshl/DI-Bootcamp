@@ -6,7 +6,8 @@ import TaskEdit from "./TaskEdit.jsx";
 
 
 
-export default function TaskList(props){
+export function TaskList(props){
+console.log("TaskList props:", props);
 
 
     return (
@@ -47,4 +48,13 @@ export default function TaskList(props){
 };
 
 
-co
+const mapStateToProps = (state) => {
+    console.log(state);
+    
+    return {
+        tasks: state.taskReducer.tasks,
+    }
+};
+
+
+export default connect(mapStateToProps)(TaskList);

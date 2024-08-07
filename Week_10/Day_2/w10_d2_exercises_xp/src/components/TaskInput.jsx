@@ -1,15 +1,21 @@
 import { useContext, useRef } from "react"
+import { connect } from "react-redux";
+
+import { ADD_TASK, addTask } from "../redux/actions";
 
 
 
-export default function TaskInput(){
+export function TaskInput(props){
+    console.log("TaskInput props:", props);
+    console.log(props.tasks);
+    
 
-    const { dispatch } = useContext(TasksContext);
     const inputRef = useRef();
 
-    const addTask = () => {
+    const _addTask = () => {
+        console.log("TaskInput props:", props);        
         const task_name = inputRef.current.value;
-        dispatch({ type: ADD_TASK, payload: task_name });
+        props.dispatch(addTask(task_name));
         inputRef.current.value = '';
         inputRef.current.focus();
     };
@@ -19,7 +25,26 @@ export default function TaskInput(){
             <h3>Add task</h3>
 
             <input ref={inputRef}></input>
-            <button onClick={addTask}>Add task</button>
+            <button onClick={_addTask}>Add task</button>
         </>
     )
 };
+
+const mapStateToProps = (state) => {
+    console.log(state);
+    
+    return {
+        tasks: state.taskReducer.tasks,
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addTask,
+    };
+};
+
+export default connect(mapDispatchToProps, mapStateToProps)(TaskInput);
+
+
+

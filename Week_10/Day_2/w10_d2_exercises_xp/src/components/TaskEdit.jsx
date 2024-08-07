@@ -4,39 +4,39 @@ import { useContext, useState, useRef, useEffect } from "react";
 
 export default function TaskEdit ({props}) {
 
-    const { dispatch } = useContext(TasksContext);
-    const [ edit, setEdit] = useState(false);
-    const inputRef = useRef();
+    // const { dispatch } = useContext(TasksContext);
+    // const [ edit, setEdit] = useState(false);
+    // const inputRef = useRef();
 
-    const showEdit = () => {
-        setEdit(true);
-    };
+    // const showEdit = () => {
+    //     setEdit(true);
+    // };
     
-    const updateTask =() => {
-        const newTaskName = inputRef.current.value
-        dispatch({ type: EDIT_TASK, payload: {id: props.id, name: newTaskName} });
-        setEdit(false);
-    }
+    // const updateTask =() => {
+    //     const newTaskName = inputRef.current.value
+    //     dispatch({ type: EDIT_TASK, payload: {id: props.id, name: newTaskName} });
+    //     setEdit(false);
+    // }
 
 
-    useEffect(() => {
-        if (edit) inputRef.current.value = props.name;
-    }, [edit])
+    // useEffect(() => {
+    //     if (edit) inputRef.current.value = props.name;
+    // }, [edit])
     
 
-    if (!edit) {
-    return (
-        <>
-            <button onClick={showEdit}>Edit</button>     
-        </>
-    );
-    } else {
-        return (
-            <>
-            <input ref={inputRef}></input><br />
-            <button onClick={updateTask}>Update</button>
-            </>
-        )
-    }
+    // if (!edit) {
+    // return (
+    //     <>
+    //         <button onClick={showEdit}>Edit</button>     
+    //     </>
+    // );
+    // } else {
+    //     return (
+    //         <>
+    //         <input ref={inputRef}></input><br />
+    //         <button onClick={updateTask}>Update</button>
+    //         </>
+    //     )
+    // }
 
 };

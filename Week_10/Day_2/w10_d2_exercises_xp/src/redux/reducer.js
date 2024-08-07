@@ -26,6 +26,9 @@ export const taskReducer = (state = initialState, action) => {
     let allTasks;
     let taskIndex;
 
+    console.log(state);
+    
+
     switch (action.type) {
         case ADD_TASK:            
             allTasks = [...state.tasks];
@@ -33,6 +36,9 @@ export const taskReducer = (state = initialState, action) => {
         return {...state, tasks: allTasks};
     
         default:
-            break;
+            return state;
     }
 };
+
+
+console.log("initial state:", initialState);
