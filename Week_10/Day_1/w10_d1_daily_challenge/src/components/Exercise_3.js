@@ -10,6 +10,8 @@ export const LIST_TASK = "list_task";
 export const DELETE_TASK = "delete_task";
 export const COMPLETE_TASK = "complete_task";
 export const EDIT_TASK = "edit_task";
+export const FILTER_TASK_BY_NAME = "filter_task_by_name";
+export const FILTER_TASK_BY_COMPLETED = "filter_task_by_completed";
 
 export const initialState = {
     tasks: [
@@ -24,6 +26,8 @@ export const initialState = {
             completed: false,
         },
     ],
+    filterByName: '',
+    filterByCompleted: ''
 }
 
 export const TasksContext = createContext();
@@ -32,6 +36,7 @@ export const TasksContext = createContext();
 export function tasksReducer (state, action) {
     let allTasks;
     let taskIndex;
+    let filteredTasks;
 
     switch (action.type) {
         case ADD_TASK:
@@ -53,7 +58,7 @@ export function tasksReducer (state, action) {
             allTasks = [...state.tasks];
             taskIndex = allTasks.findIndex((item) => item.id === action.payload.id);
             allTasks[taskIndex].name = action.payload.name;
-            return {...state, tasks: allTasks};             
+            return {...state, tasks: allTasks};
 
     }
 }

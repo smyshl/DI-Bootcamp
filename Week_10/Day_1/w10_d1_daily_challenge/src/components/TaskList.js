@@ -3,10 +3,15 @@ import { TasksContext } from "./Exercise_3.js"
 import TaskDelete from "./TaskDelete.js";
 import TaskComplete from "./TaskComplete.js";
 import TaskEdit from "./TaskEdit.js";
+import TaskInput from "./TaskInput.js";
 
 
 export default function TaskList(){
     const { state } = useContext(TasksContext);
+
+    console.log("from TaskList component filter by name:", state.filterByName);
+    console.log("from TaskList component filter by completed:", state.filterByCompleted);
+    
 
     return (
         <div id="taskListWrapper">
