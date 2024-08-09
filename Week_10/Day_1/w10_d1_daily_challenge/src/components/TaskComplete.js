@@ -10,8 +10,7 @@ export default function TaskComplete ({props}) {
     const checkBoxRef = useRef();
     
     const completeTask = () => {
-        setTaskCompleted(checkBoxRef.current.checked);
-        dispatch({ type: COMPLETE_TASK, payload: {id: props.id, completed: taskCompleted} });
+        dispatch({ type: COMPLETE_TASK, payload: {id: props.id, completed: checkBoxRef.current.checked} });
     };
 
     useEffect(() => {

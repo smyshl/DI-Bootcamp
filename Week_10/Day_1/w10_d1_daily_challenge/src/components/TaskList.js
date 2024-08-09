@@ -1,21 +1,32 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { TasksContext } from "./Exercise_3.js"
 import TaskDelete from "./TaskDelete.js";
 import TaskComplete from "./TaskComplete.js";
 import TaskEdit from "./TaskEdit.js";
-import TaskInput from "./TaskInput.js";
+
+
+const filterByName = (_tasks, _name) => {
+    const filteredTasks = _tasks.filter((item) => item.name.toLowerCase().includes(_name.toLowerCase()));
+    return filteredTasks; 
+};
+
+
+const filterByCompleted = (_tasks, _status) => {
+    const filteredTasks = _tasks.filter((item) => item.completed === _status);
+    return filteredTasks; 
+};
 
 
 export default function TaskList(){
     const { state } = useContext(TasksContext);
+    let filteredTasks = [...state.tasks];
 
-    console.log("from TaskList component filter by name:", state.filterByName);
-    console.log("from TaskList component filter by completed:", state.filterByCompleted);
-    
+    if (state.filterByName != '') filteredTasks = filterByName(state.tasks, state.filterByName)
+
+    if (state.filterByCompleted != 'not') filteredTasks = filterByCompleted(state.tasks, state.filterByCompleted)
 
     return (
         <div id="taskListWrapper">
-            {/* <h3>Tasks List</h3> */}
 
             <table>
                 <thead>
@@ -30,7 +41,7 @@ export default function TaskList(){
                 <tbody>
 
                 {
-                state.tasks.map((item, index) => {
+                filteredTasks.map((item, index) => {
                     return (
                     <tr key={item.id}>
                         <td>{index + 1}</td>
@@ -40,7 +51,8 @@ export default function TaskList(){
                         <td><TaskDelete id={item.id}/></td>
                     </tr>                    
                 )})
-            }
+                }
+
                 </tbody>
             </table>
 

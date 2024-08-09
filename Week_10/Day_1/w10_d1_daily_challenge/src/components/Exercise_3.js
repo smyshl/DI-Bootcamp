@@ -3,6 +3,7 @@ import { v4 as uuid4 } from "uuid";
 
 import TaskInput from "./TaskInput";
 import TaskList from "./TaskList";
+import TaskCompleteFilter from "./TaskCompleteFilter";
 
 
 export const ADD_TASK = "add_task";
@@ -27,7 +28,7 @@ export const initialState = {
         },
     ],
     filterByName: '',
-    filterByCompleted: ''
+    filterByCompleted: 'not'
 }
 
 export const TasksContext = createContext();
@@ -60,6 +61,11 @@ export function tasksReducer (state, action) {
             allTasks[taskIndex].name = action.payload.name;
             return {...state, tasks: allTasks};
 
+        case FILTER_TASK_BY_NAME:
+            return {...state, filterByName: action.payload}; 
+
+        case FILTER_TASK_BY_COMPLETED:
+            return {...state, filterByCompleted: action.payload};         
     }
 }
 
@@ -73,7 +79,11 @@ function Exercise_3() {
             <div>
                 <h2 style={{ textDecoration: 'underline' }}>Enhanced Task Manager</h2>
             </div>
-            <TaskInput />
+            <div>
+                <TaskInput />
+                <TaskCompleteFilter />
+            </div>
+            
             <div id="table">
                 <TaskList />
             </div>
