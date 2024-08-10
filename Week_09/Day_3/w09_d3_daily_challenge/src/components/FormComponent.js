@@ -1,15 +1,17 @@
 
 
-function FormComponent(){
+function FormComponent(props){
 
+  const { handleChange } = props;
 
+  
     return (
       <section>
         <header>Week 9 Day 3 Daily Challenge: Form Container</header>
 
         <form>
           <div>
-            <input type="text" id="firstName" placeholder="First Name" />
+            <input type="text" id="firstName" placeholder="First Name" onChange={(e) => handleChange(e)}/>
           </div>
            <div>
           <input type="text" id="secondtName" placeholder="Second Name" />
@@ -27,7 +29,7 @@ function FormComponent(){
                 name="gender"
                 value="female"
               />
-              <label for="genderChoice1">Female</label>
+              <label htmlFor="genderChoice1">Female</label>
             </div>
 
             <div>
@@ -37,7 +39,7 @@ function FormComponent(){
                 name="gender"
                 value="male"
               />
-              <label for="genderChoice2">Male</label>
+              <label htmlFor="genderChoice2">Male</label>
             </div>
           </fieldset>
 
@@ -61,15 +63,15 @@ function FormComponent(){
                 name="diet"
                 value="nutsFree"
               />
-              <label for="nutsFree">Nuts free</label>
+              <label htmlFor="nutsFree">Nuts free</label>
             </div>
             <div>
               <input type="checkbox" id="lactoseFree" name="diet" value="lactoseFree" />
-              <label for="lactoseFree">Lactose free</label>
+              <label htmlFor="lactoseFree">Lactose free</label>
             </div>
             <div>
               <input type="checkbox" id="vegan" name="diet" value="vegan" />
-              <label for="vegan">Vegan</label>
+              <label htmlFor="vegan">Vegan</label>
             </div>
           </fieldset>
           <div id="submit">
