@@ -9,13 +9,59 @@ function App(){
     const [ state, setState ] = useState({})
 
     const handleChange = (e) => {
-        console.log(e.target.type, e.target.id, e.target.value);  
+        
+        if (e.target.type === 'text') {
+            setState({...state, [e.target.id]: e.target.value})
+        };
+
+        if (e.target.type === 'number') {
+            setState({...state, [e.target.id]: Number(e.target.value)})
+        };        
+
+        if (e.target.type === 'radio') {
+            setState({...state, gender: e.target.value})
+        };
+
+        if (e.target.type === 'select-one') {
+            setState({...state, destination: e.target.value})
+        };
+
+        if (e.target.type === 'checkbox') {
+            console.log(e.target.id, "state.diet:", state.diet);
+
+            let newDiet;
+            
+            if (state.diet) {
+                console.log(state.diet);
+                
+                const dietIndex = state.diet.findIndex((item) => e.target.id in item);
+                console.log("dietIndex", dietIndex);
+                
+                if (dietIndex >= 0) {
+                    newDiet = state.diet.toSpliced(dietIndex, 1, {[e.target.id]: e.target.checked});
+                } else {
+                    newDiet = [...state.diet];
+                    newDiet.push({[e.target.id]: e.target.checked});
+                }
+                setState({...state, diet: newDiet});
+                console.log("state1:", state);
+                
+            } else {
+                setState({...state, diet: [{[e.target.id]: e.target.checked}]})
+                console.log("state2:", state);
+            };
+        };
+
+        console.log(state);
+        
+
     }
 
 
     return (
         <div>
-            <FormComponent handleChange={handleChange}/>
+            <header>Week 9 Day 3 Daily Challenge: Form Container</header>
+            <FormComponent state={state} handleChange={handleChange}/>
 
         </div>
     )

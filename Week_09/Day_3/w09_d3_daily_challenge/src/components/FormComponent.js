@@ -2,22 +2,24 @@
 
 function FormComponent(props){
 
-  const { handleChange } = props;
+  const { state, handleChange } = props;
 
   
     return (
+    <div id="mainWrapper">
+        
+      
       <section>
-        <header>Week 9 Day 3 Daily Challenge: Form Container</header>
 
         <form>
           <div>
-            <input type="text" id="firstName" placeholder="First Name" onChange={(e) => handleChange(e)}/>
+            <input type="text" id="firstName" placeholder="First Name" onChange={(e) => handleChange(e)} />
           </div>
            <div>
-          <input type="text" id="secondtName" placeholder="Second Name" />
+          <input type="text" id="secondName" placeholder="Second Name" onChange={(e) => handleChange(e)} />
           </div>
           <div>
-            <input type="text" id="age" placeholder="Age" />
+            <input type="number" id="age" placeholder="Age" onChange={(e) => handleChange(e)} />
           </div>
 
           <fieldset>
@@ -28,6 +30,7 @@ function FormComponent(props){
                 id="genderChoice1"
                 name="gender"
                 value="female"
+                onChange={(e) => handleChange(e)}
               />
               <label htmlFor="genderChoice1">Female</label>
             </div>
@@ -38,6 +41,7 @@ function FormComponent(props){
                 id="genderChoice2"
                 name="gender"
                 value="male"
+                onChange={(e) => handleChange(e)}
               />
               <label htmlFor="genderChoice2">Male</label>
             </div>
@@ -45,7 +49,7 @@ function FormComponent(props){
 
           <div>
             Select your destination <br />
-            <select name="destination">
+            <select name="destination" onChange={(e) => handleChange(e)}>
               <option value="" disabled>-- Please Choose a destination --</option>
               <option value="Japan">Japan</option>
               <option value="USA">USA</option>
@@ -54,7 +58,7 @@ function FormComponent(props){
             </select>
           </div>
 
-          <fieldset>
+          <fieldset onClick={(e) => handleChange(e)}>
             <legend>Dietary restrictions</legend>
             <div>
               <input
@@ -79,6 +83,28 @@ function FormComponent(props){
              </div>
         </form>
       </section>
+
+      <section id="inputData">
+        <div>
+          <div><strong>Entered information:</strong></div>
+
+          <div><strong>Your name:</strong> {state.firstName} {state.secondName}</div>
+          <div><strong>Your age:</strong> {state.age}</div>
+          <div><strong>Your gender:</strong> {state.gender}</div>
+          <div><strong>Your destination:</strong> {state.destination}</div>
+          <div><strong>Your dietary restrictions:</strong></div>
+          <ul>
+            <li><strong>Nuts free:</strong> {state.diet && state.diet[0]?.nutsFree ? "Yes" : "No"}</li>
+            <li><strong>Lactose free:</strong> {state.diet && state.diet[1]?.lactoseFree ? "Yes" : "No"}</li>
+            <li><strong>Vegan meal:</strong> {state.diet && state.diet[2]?.vegan ? "Yes" : "No"}</li>
+          </ul>
+                                       
+
+        </div>
+      </section>
+
+
+    </div>
     );
 };
 
