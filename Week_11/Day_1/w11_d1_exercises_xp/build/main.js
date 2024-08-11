@@ -57,3 +57,55 @@ exercise_4_func = function (num) {
 console.log(exercise_4_func(0));
 console.log(exercise_4_func(-1));
 console.log(exercise_4_func(1));
+function add(a, b) {
+    return a + b;
+}
+;
+console.log(add(3, 4));
+console.log(add('3', '4'));
+/*
+Exercise 6: Tuple Types
+What You Will Learn:
+    How to use tuple types in TypeScript.
+    How to define functions that return multiple values of different types.
+Description: Use tuple types to define a function that returns multiple values of different types.
+
+Instructions
+Create a function getDetails that takes a name and age as input and returns a tuple containing
+the input values and a greeting message.
+*/
+function getDetails(username, age) {
+    return [username, age, `Hello, ${username}! Your age is ${age}`];
+}
+;
+console.log(getDetails('Mike', 9));
+/*
+Exercise 7: Object Type Annotations
+What You Will Learn:
+    How to use object type annotations in TypeScript.
+    How to define the shape of an object using an interface.
+Description: Use object type annotations to define the shape of an object.
+
+Instructions
+Create a function createPerson that returns an object representing a person,
+with properties for name and age, using object type annotations.
+*/
+function createPerson(firstName, age) {
+    let person;
+    person = { firstName, age };
+    return person;
+}
+;
+console.log(createPerson('John', 89));
+/*
+Exercise 8: Type Assertions
+What You Will Learn:
+    How to use type assertions in TypeScript.
+    How to cast variables to specific types when TypeScript cannot infer the type.
+Description: Use type assertions to specify the type of a variable that TypeScript cannot infer.
+
+Instructions
+Given an HTML element, use a type assertion to cast it to a specific type and access its properties.
+*/
+let inputElement = document.getElementById("inputId");
+console.log("Value of input element:", inputElement.value);
