@@ -4,12 +4,15 @@ function FormComponent(props){
 
   const { state, handleChange } = props;
 
-  
+  const submitHandler = (e) => {
+    e.target.preventDefault()
+  }
+
+
     return (
     <div id="mainWrapper">
         
-      
-      <section>
+      <section id="inputData">
 
         <form>
           <div>
@@ -79,19 +82,23 @@ function FormComponent(props){
             </div>
           </fieldset>
           <div id="submit">
-              <input type="submit" id="submit_button"value="Submit" />
+              <input type="submit" id="submit_button"value="Submit" onSubmit={(e) => submitHandler(e)} />
              </div>
         </form>
       </section>
 
-      <section id="inputData">
+      <section id="enteredData">
         <div>
-          <div><strong>Entered information:</strong></div>
+          <div><strong><u>Entered information:</u></strong></div>
 
-          <div><strong>Your name:</strong> {state.firstName} {state.secondName}</div>
-          <div><strong>Your age:</strong> {state.age}</div>
-          <div><strong>Your gender:</strong> {state.gender}</div>
-          <div><strong>Your destination:</strong> {state.destination}</div>
+          <div><strong>Your name:</strong> <br />
+          {state.firstName} {state.secondName}</div>
+          <div><strong>Your age:</strong>  <br />
+          {state.age}</div>
+          <div><strong>Your gender:</strong>  <br />
+          {state.gender}</div>
+          <div><strong>Your destination:</strong>  <br />
+          {state.destination}</div>
           <div><strong>Your dietary restrictions:</strong></div>
           <ul>
             <li><strong>Nuts free:</strong> {state.diet && state.diet[0]?.nutsFree ? "Yes" : "No"}</li>
@@ -99,10 +106,8 @@ function FormComponent(props){
             <li><strong>Vegan meal:</strong> {state.diet && state.diet[2]?.vegan ? "Yes" : "No"}</li>
           </ul>
                                        
-
         </div>
       </section>
-
 
     </div>
     );

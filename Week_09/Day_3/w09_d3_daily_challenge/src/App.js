@@ -27,15 +27,12 @@ function App(){
         };
 
         if (e.target.type === 'checkbox') {
-            console.log(e.target.id, "state.diet:", state.diet);
 
             let newDiet;
             
             if (state.diet) {
-                console.log(state.diet);
                 
                 const dietIndex = state.diet.findIndex((item) => e.target.id in item);
-                console.log("dietIndex", dietIndex);
                 
                 if (dietIndex >= 0) {
                     newDiet = state.diet.toSpliced(dietIndex, 1, {[e.target.id]: e.target.checked});
@@ -44,19 +41,14 @@ function App(){
                     newDiet.push({[e.target.id]: e.target.checked});
                 }
                 setState({...state, diet: newDiet});
-                console.log("state1:", state);
                 
             } else {
                 setState({...state, diet: [{[e.target.id]: e.target.checked}]})
-                console.log("state2:", state);
             };
         };
-
         console.log(state);
         
-
-    }
-
+    };
 
     return (
         <div>
@@ -66,5 +58,6 @@ function App(){
         </div>
     )
 }
+
 
 export default App;
