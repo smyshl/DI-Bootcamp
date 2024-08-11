@@ -169,4 +169,46 @@ Create a function getAction that takes a string representing a user role and ret
 Use a switch statement with complex conditions to handle multiple roles.
 */
 
-function getAction
+function getAction (role: 'doctor' | 'teacher' | 'farmer' | 'artist'): string {
+
+    switch (role) {
+        case 'doctor' :
+            return 'treats';
+        case 'teacher' :
+            return 'educates';
+        case 'farmer' :
+            return 'grows';
+        case 'artist' :
+            return 'creates';                     
+        default:
+            return `${role} - no such role`;
+    };
+};
+
+let role: any = 'teacher';
+
+console.log(role, getAction(role));
+
+
+/*
+Exercise 10: Function Overloading with Default Parameters
+What You Will Learn:
+    How to use function overloading in TypeScript.
+    How to create overloaded functions with default parameters.
+Description: Create an overloaded function with a default parameter.
+
+Instructions
+Create an overloaded function greet that can either take a name and greet the person,
+or take no arguments and return a default greeting.
+*/
+
+function greet (): string;
+function greet(firstName: string): string;
+function greet(firstName?: string): string {
+    if (typeof firstName === 'undefined'){
+        return 'Hello unknown user!'
+    } else return `Hello my friend ${firstName}!`;
+};
+
+console.log(greet());
+console.log(greet('Pete'));

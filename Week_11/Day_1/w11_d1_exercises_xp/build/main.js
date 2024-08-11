@@ -109,3 +109,42 @@ Given an HTML element, use a type assertion to cast it to a specific type and ac
 */
 let inputElement = document.getElementById("inputId");
 console.log("Value of input element:", inputElement.value);
+/*
+Exercise 9: switch Statement with Complex Conditions
+What You Will Learn:
+    How to use a switch statement in TypeScript.
+    How to handle multiple conditions using complex cases in a switch statement.
+Description: Use a switch statement with complex conditions to determine different behaviors.
+
+Instructions
+Create a function getAction that takes a string representing a user role and returns an action for the user.
+Use a switch statement with complex conditions to handle multiple roles.
+*/
+function getAction(role) {
+    switch (role) {
+        case 'doctor':
+            return 'treats';
+        case 'teacher':
+            return 'educates';
+        case 'farmer':
+            return 'grows';
+        case 'artist':
+            return 'creates';
+        default:
+            return `${role} - no such role`;
+    }
+    ;
+}
+;
+let role = 'teacher';
+console.log(role, getAction(role));
+function greet(firstName) {
+    if (typeof firstName === 'undefined') {
+        return 'Hello unknown user!';
+    }
+    else
+        return `Hello my friend ${firstName}!`;
+}
+;
+console.log(greet());
+console.log(greet('Pete'));
