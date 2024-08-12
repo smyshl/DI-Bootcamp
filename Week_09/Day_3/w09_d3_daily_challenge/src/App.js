@@ -32,28 +32,54 @@ function App(){
             
             if (state.diet) {
                 
-                const dietIndex = state.diet.findIndex((item) => e.target.id in item);
+                const dietIndex = state.diet.findIndex((item) => item === e.target.id);
                 
                 if (dietIndex >= 0) {
-                    newDiet = state.diet.toSpliced(dietIndex, 1, {[e.target.id]: e.target.checked});
+                    newDiet = state.diet.toSpliced(dietIndex, 1);
                 } else {
                     newDiet = [...state.diet];
-                    newDiet.push({[e.target.id]: e.target.checked});
+                    newDiet.push(e.target.id);
                 }
                 setState({...state, diet: newDiet});
                 
             } else {
-                setState({...state, diet: [{[e.target.id]: e.target.checked}]})
+                setState({...state, diet: [e.target.id]});
             };
         };
-        console.log(state);
-        
     };
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let req_str = 'http://localhost:3000/?'
+
+        const stateKeysArray = Object.keys(state);
+
+        if (stateKeysArray.length) {
+            for (let key of stateKeysArray) {
+                if (key != 'diet') {
+                    req_str += key + '=' + state[key] + '&';
+                } else {
+                    for (let item of state.diet) {
+                        req_str += item + '=on' + '&';
+                    }
+                }
+            }
+            req_str = req_str.slice(0, -1);
+        } else req_str = 'Nothing was entered'
+    console.log('Output URL:');           
+    console.log(req_str);    
+    alert(req_str);
+    e.target.reset()
+    setState({})
+    };
+
 
     return (
         <div>
             <header>Week 9 Day 3 Daily Challenge: Form Container</header>
-            <FormComponent state={state} handleChange={handleChange}/>
+            <FormComponent state={state} handleChange={handleChange} handleSubmit={handleSubmit} />
 
         </div>
     )

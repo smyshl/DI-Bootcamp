@@ -1,20 +1,14 @@
 
-
 function FormComponent(props){
 
-  const { state, handleChange } = props;
-
-  const submitHandler = (e) => {
-    e.target.preventDefault()
-  }
-
+  const { state, handleChange, handleSubmit } = props;
 
     return (
     <div id="mainWrapper">
         
       <section id="inputData">
 
-        <form>
+        <form action="" onSubmit={(e) => handleSubmit(e)}>
           <div>
             <input type="text" id="firstName" placeholder="First Name" onChange={(e) => handleChange(e)} />
           </div>
@@ -82,7 +76,7 @@ function FormComponent(props){
             </div>
           </fieldset>
           <div id="submit">
-              <input type="submit" id="submit_button"value="Submit" onSubmit={(e) => submitHandler(e)} />
+              <input type="submit" id="submit_button" value="Submit" />
              </div>
         </form>
       </section>
@@ -101,11 +95,11 @@ function FormComponent(props){
           {state.destination}</div>
           <div><strong>Your dietary restrictions:</strong></div>
           <ul>
-            <li><strong>Nuts free:</strong> {state.diet && state.diet[0]?.nutsFree ? "Yes" : "No"}</li>
-            <li><strong>Lactose free:</strong> {state.diet && state.diet[1]?.lactoseFree ? "Yes" : "No"}</li>
-            <li><strong>Vegan meal:</strong> {state.diet && state.diet[2]?.vegan ? "Yes" : "No"}</li>
+            <li><strong>Nuts free:</strong> {state.diet && state.diet.includes("nutsFree") ? "Yes" : "No"} </li>
+            <li><strong>Lactose free:</strong> {state.diet && state.diet.includes("lactoseFree") ? "Yes" : "No"} </li>
+            <li><strong>Vegan meal:</strong> {state.diet && state.diet.includes("vegan") ? "Yes" : "No"} </li>
           </ul>
-                                       
+                                      
         </div>
       </section>
 
