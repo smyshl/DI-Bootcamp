@@ -39,5 +39,66 @@
 
 
 #main_wrapper {
-  margin-left: 25px;
+  display: flex;
+
+}
+
+#calculator {
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  padding-top: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+#num_1, #num_2 {
+  text-align: right;
+  padding: 10px;
+  font-size: 1.8rem;
+  width: 10rem;
+  margin: 20px;
+  border: 1px black solid;
+  border-radius: 5px;
+}
+
+select {
+  font-size: 1.8rem;
+  padding: 5px;
+  margin: 5px;
+  margin-left: 8px;
+  border: none;
+}
+
+#result {
+  text-align: center;
+  padding: 10px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  width: 20rem;
+  margin: 10px;
+  margin-top: 30px;
+  border: none;
+  background-color: white;
+  /* border-radius: 5px; */
+}
+
+div {
+  text-align: center;
+}
+
+#button {
+  font-size: 1.5rem;
+  padding: 15px;
+  margin-top: 30px;
+  border-radius: 5px;
+  border: 1px black solid;
 }
