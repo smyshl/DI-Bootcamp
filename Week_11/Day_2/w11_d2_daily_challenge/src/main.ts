@@ -15,24 +15,21 @@ function validateUnionType(value: any, allowedTypes: string[]): boolean {
     return false;
 };
 
-let _values: {
-    'string': string,
-    'number': number,
-    'boolean': boolean,
-    'any': any,
-};
+let typesArray: string[] = [
+    'string',
+    'number',
+    'boolean',
+    'any',
+];
 
-_values = {
-  'string': 'string',
-  'number': 100,
-  'boolean': true,
-  'any': 'Let it be string',    
-}
+let valuesArray: [string, number, boolean, any] = [
+  'string',
+  100,
+  true,
+  ['Let it be string'],    
+]
 
-console.log(typeof _values);
-
-
-
-for (let value of Object.values(_values)) {
-
+for (let value of valuesArray) {
+    let validation_passed: boolean = validateUnionType(value, typesArray);
+    console.log("The value:", value, `- ${validation_passed ? 'passed' : "didn't pass"} validation`);
 }
