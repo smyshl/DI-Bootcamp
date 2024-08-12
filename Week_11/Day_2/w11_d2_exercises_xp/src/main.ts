@@ -85,3 +85,46 @@ class Car implements CarInterface {
 let mustang: Car = new Car ("Ford", "Mustang", 4);
 
 console.log(mustang.start());
+
+
+/*
+Exercise 3: Using Intersection Types
+What You Will Learn:
+    How to use intersection types to combine multiple types into a new type.
+    How to create a function that returns an object with properties from both input objects.
+    How to use the spread operator to combine properties from different objects.
+Description: Create a function that combines two objects using intersection types and returns a new object containing all properties from both objects.
+
+Instructions
+Create a function combineObjects that accepts two objects and combines them using intersection types.
+The function should return a new object containing all properties from both input objects.
+In this exercise, a function combineObjects accepts two objects of types T and U and returns a new object containing all properties from both input objects using intersection types.
+The function uses the spread operator to combine the properties of the two objects.
+*/
+
+type Object_1 = {
+    prop_1_1: string;
+    prop_1_2: number;
+}
+
+type Object_2 = {
+    prop_2_1: boolean;
+    prop_2_2: string | number | boolean;
+}
+
+function combineObjects (obj_1: Object_1, obj_2: Object_2): Object_1 & Object_2 {
+    let obj_3: Object_1 & Object_2 = {...obj_1, ...obj_2}
+    return obj_3;
+};
+
+let obj_1: Object_1 = {
+    prop_1_1: "string",
+    prop_1_2: 100,    
+};
+
+let obj_2: Object_2 = {
+    prop_2_1: true,
+    prop_2_2: "string | number | boolean;",
+};
+
+console.log(combineObjects(obj_1, obj_2));

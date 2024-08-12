@@ -50,3 +50,17 @@ class Car {
 ;
 let mustang = new Car("Ford", "Mustang", 4);
 console.log(mustang.start());
+function combineObjects(obj_1, obj_2) {
+    let obj_3 = Object.assign(Object.assign({}, obj_1), obj_2);
+    return obj_3;
+}
+;
+let obj_1 = {
+    prop_1_1: "string",
+    prop_1_2: 100,
+};
+let obj_2 = {
+    prop_2_1: true,
+    prop_2_2: "string | number | boolean;",
+};
+console.log(combineObjects(obj_1, obj_2));
