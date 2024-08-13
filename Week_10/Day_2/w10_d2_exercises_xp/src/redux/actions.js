@@ -25,13 +25,42 @@ export const filterTaskByName = (val) => {
     return {
         type: FILTER_TASK_BY_NAME,
         payload: {
-            name: val,
+            filterByName: val,
         },
     };
 };
 
 
+export const completeTask = (val) => {
+    return {
+        type: COMPLETE_TASK,
+        payload: {
+            id: val.id,
+            completed: val.completed,
+        },
+    };
+};
 
+
+export const editTask = (val) => {
+    return {
+        type: EDIT_TASK,
+        payload: {
+            id: val.id,
+            name: val.name,
+        },
+    };
+};
+
+
+export const deleteTask = (val) => {
+    return {
+        type: DELETE_TASK,
+        payload: {
+            id: val,
+        },
+    };
+};
 
 
 

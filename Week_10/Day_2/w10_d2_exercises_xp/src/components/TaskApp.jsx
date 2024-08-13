@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { useEffect } from 'react';
 
 import TaskInput from "./TaskInput.jsx";
-// import { TaskList } from "./TaskList.jsx";
+import TaskList from "./TaskList.jsx";
 
 
 export function TaskApp (props) {
 
 
     useEffect (() => {
-        console.log('TaskApp =>', props.tasks[0].name);
+        // console.log('TaskApp =>', props.tasks[0].name);
         
     }, [])
 
@@ -19,14 +19,14 @@ export function TaskApp (props) {
             <div>
                 <h2 style={{ textDecoration: 'underline' }}>Basic Todo List with React-Redux</h2>
             </div>
-            <div>{props.tasks[0].name}</div>
+            {/* <div>{props.tasks[0].name}</div> */}
             <div>
                 <TaskInput />
                 {/* <TaskCompleteFilter /> */}
             </div>
             
             <div id="table">
-                {/* <TaskList /> */}
+                <TaskList />
             </div>
 
 
@@ -37,7 +37,9 @@ export function TaskApp (props) {
 
 const mapStateToProps = (state) => {
     return {
-      tasks: state.taskReducer.tasks,
+        tasks: state.taskReducer.tasks,
+        filterByName: '',
+        filterByCompleted: 'not',
     };
   };
 
