@@ -5,6 +5,8 @@ export const LIST_TASK = "list_task";
 export const DELETE_TASK = "delete_task";
 export const COMPLETE_TASK = "complete_task";
 export const EDIT_TASK = "edit_task";
+export const FILTER_TASK_BY_NAME = "filter_task_by_name";
+export const FILTER_TASK_BY_COMPLETED = "filter_task_by_completed";
 
 
 export const addTask = (val) => {
@@ -17,3 +19,20 @@ export const addTask = (val) => {
         },
     };
 };
+
+
+export const filterTaskByName = (val) => {
+    return {
+        type: FILTER_TASK_BY_NAME,
+        payload: {
+            name: val,
+        },
+    };
+};
+
+
+
+
+
+
+// export default addTask;
