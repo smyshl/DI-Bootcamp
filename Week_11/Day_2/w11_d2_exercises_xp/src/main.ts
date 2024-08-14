@@ -128,3 +128,5 @@ let obj_2: Object_2 = {
 };
 
 console.log(combineObjects(obj_1, obj_2));
+
+
