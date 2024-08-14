@@ -1,4 +1,4 @@
-import { useContext, useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { connect } from "react-redux";
 
 import { completeTask } from "../redux/actions.js";
@@ -7,7 +7,7 @@ import { completeTask } from "../redux/actions.js";
 
 export function TaskComplete (props) {
 
-    const [ taskCompleted, setTaskCompleted ] = useState(props.props_complete.completed)
+    // const [ taskCompleted, setTaskCompleted ] = useState(props.props_complete.completed)
 
     const checkBoxRef = useRef();
     
@@ -22,9 +22,11 @@ export function TaskComplete (props) {
     // }, [])
 
     useEffect(() => {
-                console.log("TaskComplete =>", props);
-        checkBoxRef.current.checked = taskCompleted;
-    }, [taskCompleted])
+                // console.log("TaskComplete =>", props);
+        checkBoxRef.current.checked = props.props_complete.completed;               
+        // checkBoxRef.current.checked = taskCompleted;
+    // }, [taskCompleted])
+    }, [])
 
     return (
         <>

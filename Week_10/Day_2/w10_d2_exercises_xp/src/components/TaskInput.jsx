@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useRef } from "react";
 import { connect } from "react-redux";
 import { addTask, filterTaskByName } from "../redux/actions.js";
 
@@ -14,10 +14,10 @@ export function TaskInput (props) {
    
     const inputRef = useRef();
 
-    useEffect (() => {
-        // console.log("TaskInput =>", props);
+    // useEffect (() => {
+    //     // console.log("TaskInput =>", props);
         
-    }, [props])
+    // }, [props])
 
     // const _addTask = () => {
     //     console.log("TaskInput props:", props.tasks);
@@ -31,6 +31,9 @@ export function TaskInput (props) {
 
     const addTask = () => {
         const task_name = inputRef.current.value;
+
+        // console.log("TaskInput =>", props, task_name);
+        
         props.addTask(task_name)
         // dispatch({ type: ADD_TASK, payload: task_name });
         inputRef.current.value = '';
@@ -40,7 +43,7 @@ export function TaskInput (props) {
 
     const filterTasksByName = () =>  {
         const nameInput = inputRef.current.value;
-        console.log(nameInput);
+        // console.log(nameInput);
         
         // dispatch({type: FILTER_TASK_BY_NAME, payload: nameInput})
         props.filterTaskByName(nameInput);
@@ -51,7 +54,7 @@ export function TaskInput (props) {
         <>
             <h3>Add task</h3>
 
-            {/* <div><div>{props.tasks[0].name}</div></div> */}
+
             <input ref={inputRef} onChange={filterTasksByName}></input>
             <button onClick={addTask}>Add task</button>
         </>
@@ -62,8 +65,8 @@ export function TaskInput (props) {
 const mapStateToProps = (state) => {
     return {
         tasks: state.taskReducer.tasks,
-        filterByName: '',
-        filterByCompleted: 'not',
+        filterByName: state.taskReducer.filterByName,
+        filterByCompleted: state.taskReducer.filterByCompleted,
     };
   };
 

@@ -2,7 +2,6 @@ import { v4 as uuid4 } from "uuid";
 
 import {
     ADD_TASK,
-    LIST_TASK,
     DELETE_TASK,
     COMPLETE_TASK,
     EDIT_TASK,
@@ -31,7 +30,6 @@ export const initialState = {
 const taskReducer = (state = initialState, action) => {
     let allTasks;
     let taskIndex;
-    let filteredTasks;
 
     switch (action.type) {
         case ADD_TASK:
@@ -39,7 +37,7 @@ const taskReducer = (state = initialState, action) => {
 
             allTasks = JSON.parse(JSON.stringify(state.tasks));
 
-            allTasks.push({id: uuid4(), name: action.payload, completed: false})
+            allTasks.push({id: uuid4(), name: action.payload.name, completed: false})
             return {...state, tasks: allTasks};
 
         case DELETE_TASK:
@@ -49,7 +47,7 @@ const taskReducer = (state = initialState, action) => {
         case EDIT_TASK:
             // allTasks = [...state.tasks];
             allTasks = JSON.parse(JSON.stringify(state.tasks));
-            console.log("TaskReducer-edit =>", allTasks);  
+            // console.log("TaskReducer-edit =>", allTasks);  
 
             taskIndex = allTasks.findIndex((item) => item.id === action.payload.id);
             allTasks[taskIndex].name = action.payload.name;
@@ -58,10 +56,10 @@ const taskReducer = (state = initialState, action) => {
 
         case COMPLETE_TASK:
             // allTasks = [...state.tasks];
-            console.log("taskReducer =>", action.payload.id, action.payload.completed);
+            // console.log("taskReducer =>", action.payload.id, action.payload.completed);
 
             allTasks = JSON.parse(JSON.stringify(state.tasks));
-            console.log("TaskReducer-complete =>", allTasks);            
+            // console.log("TaskReducer-complete =>", allTasks);            
 
             taskIndex = allTasks.findIndex((item) => item.id === action.payload.id);
             allTasks[taskIndex].completed = action.payload.completed;
@@ -69,8 +67,11 @@ const taskReducer = (state = initialState, action) => {
 
         
         case FILTER_TASK_BY_NAME:
-            console.log("taskReducer =>", action.payload, state);
-            return {...state, filterByName: action.payload}; 
+            // console.log("taskReducer filter by name=>", action.payload, state);
+            return {...state, filterByName: action.payload.filterByName}; 
+
+        case FILTER_TASK_BY_COMPLETED:
+            return {...state, filterByCompleted: action.payload.filterByCompleted};      
 
         default:
             return state;

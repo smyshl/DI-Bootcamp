@@ -1,4 +1,4 @@
-import { useContext, useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 
 import { editTask } from "../redux/actions.js";
@@ -12,11 +12,15 @@ export function TaskEdit (props) {
     const inputRef = useRef();
 
     const showEdit = () => {
+        // console.log(inputRef);
+        
+        
         setEdit(true);
     };
     
     const updateTask =() => {
         const newTaskName = inputRef.current.value
+     
         props.editTask( {id: props.props_edit.id, name: newTaskName} );
         setEdit(false);
     }
@@ -28,7 +32,10 @@ export function TaskEdit (props) {
 
 
     useEffect(() => {
-        if (edit) inputRef.current.value = props.props_edit.name;
+        if (edit) {
+            inputRef.current.value = props.props_edit.name;
+            inputRef.current.focus();
+        };             
     }, [edit])
     
 

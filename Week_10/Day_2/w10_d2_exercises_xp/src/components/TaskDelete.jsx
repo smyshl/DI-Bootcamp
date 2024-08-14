@@ -6,7 +6,7 @@ import { deleteTask } from "../redux/actions.js";
 export function TaskDelete (props) {
 
     const deleteTask = () => {
-        console.log("TaskDelete =>", props);
+        // console.log("TaskDelete =>", props);
         
         props.deleteTask(props.id);
     };    

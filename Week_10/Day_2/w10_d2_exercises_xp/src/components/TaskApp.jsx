@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 import TaskInput from "./TaskInput.jsx";
 import TaskList from "./TaskList.jsx";
+import TaskCompleteFilter from './TaskCompleteFilter.jsx';
 
 
 export function TaskApp (props) {
 
 
-    useEffect (() => {
-        // console.log('TaskApp =>', props.tasks[0].name);
+    // useEffect (() => {
+    //     // console.log('TaskApp =>', props.tasks[0].name);
         
-    }, [])
+    // }, [])
 
     return (
         <>
@@ -22,7 +23,7 @@ export function TaskApp (props) {
             {/* <div>{props.tasks[0].name}</div> */}
             <div>
                 <TaskInput />
-                {/* <TaskCompleteFilter /> */}
+                <TaskCompleteFilter />
             </div>
             
             <div id="table">
@@ -38,8 +39,8 @@ export function TaskApp (props) {
 const mapStateToProps = (state) => {
     return {
         tasks: state.taskReducer.tasks,
-        filterByName: '',
-        filterByCompleted: 'not',
+        filterByName: state.taskReducer.filterByName,
+        filterByCompleted: state.taskReducer.filterByCompleted,
     };
   };
 

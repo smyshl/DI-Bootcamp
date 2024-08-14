@@ -1,7 +1,6 @@
 import { v4 as uuid4 } from 'uuid';
 
 export const ADD_TASK = "add_task";
-export const LIST_TASK = "list_task";
 export const DELETE_TASK = "delete_task";
 export const COMPLETE_TASK = "complete_task";
 export const EDIT_TASK = "edit_task";
@@ -62,6 +61,15 @@ export const deleteTask = (val) => {
     };
 };
 
+
+export const filterTaskByCompleted = (val) => {
+    return {
+        type: FILTER_TASK_BY_COMPLETED,
+        payload: {
+            filterByCompleted: val,
+        },
+    };
+};
 
 
 // export default addTask;
