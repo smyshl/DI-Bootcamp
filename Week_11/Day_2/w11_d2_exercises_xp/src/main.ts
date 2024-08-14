@@ -130,3 +130,102 @@ let obj_2: Object_2 = {
 console.log(combineObjects(obj_1, obj_2));
 
 
+/*
+Exercise 4: Using Generics with Classes
+What You Will Learn:
+    How to create a generic class that manages a stack data structure.
+    How to implement methods like push, pop, and isEmpty in the stack.
+    How to use generics to make the class work with different types.
+Description: Create a generic class Stack that represents a stack data structure. The class should support operations like push, pop, and isEmpty.
+
+Instructions
+Create a generic class Stack<T> that supports the following operations:
+
+    A push method that adds an element of type T to the stack.
+    A pop method that removes the top element from the stack and returns it.
+    An isEmpty method that checks whether the stack is empty.
+
+In this exercise, a generic class Stack<T> represents a stack data structure. The class supports operations such as push, pop, and isEmpty.
+The push method adds an element of type T to the stack, the pop method removes and returns the top element, and the isEmpty method checks if the stack is empty.
+*/
+
+class Stack<T> {
+    private stack: T[] = [];
+
+    constructor (private stackSize: number = 5) {}
+
+    push (element: T): void {
+        if (this.stack.length < this.stackSize) {
+            this.stack.push(element);
+        } else {
+            console.log("The stack is full");  
+        };
+    };
+
+    pop (): T | void {
+        if (!this.isEmpty()) {
+            return this.stack.pop();
+        } else {
+            console.log("The stack is empty");  
+        };        
+    };
+
+    isEmpty (): boolean {
+        if (this.stack.length === 0) {
+            return true
+        } else return false;
+    };
+;}
+
+let stack_1 = new Stack(3);
+
+console.log("Stack is empty?", stack_1.isEmpty());
+stack_1.push(1);
+stack_1.push(1);
+stack_1.push(1);
+stack_1.push(1);
+
+stack_1.pop();
+stack_1.pop();
+stack_1.pop();
+stack_1.pop();
+
+
+
+/*
+Exercise 5: Using Generics with Functions
+What You Will Learn:
+    How to create a generic function that filters an array based on a predicate function.
+    How to use generics to make the function work with different types.
+    How to handle predicate functions with different types.
+Description: Create a generic function filterArray that accepts an array and a predicate function, and returns a new array containing elements that satisfy the predicate.
+
+Instructions
+Create a generic function filterArray<T> that accepts an array of type T and a predicate function (element: T) => boolean.
+The function should return a new array containing elements that satisfy the predicate.
+
+In this exercise, a generic function filterArray<T> accepts an array of type T and a predicate function (element: T) => boolean. The function returns a new array containing elements that satisfy the predicate function.
+This approach demonstrates how to use generics with functions to create flexible and reusable code for filtering arrays of various types.
+*/
+
+function predicate<T> (element: T): boolean {
+    if (typeof element === 'number') return true;
+    return false;
+}
+
+
+function filterArray<T> (array: T[]): T[] {
+    let newArray: number[] = [];
+    
+    for (let element of array) {
+        if (predicate(element)) {
+            newArray.push(element as number);     
+        }
+    }
+    
+    return newArray as T[];           
+}
+
+
+console.log(filterArray([1, 2, '1', 0]));
+console.log(filterArray(['sdf', 1, true]))
