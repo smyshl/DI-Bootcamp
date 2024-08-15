@@ -70,6 +70,3 @@ export const filterTaskByCompleted = (val) => {
         },
     };
 };
-
-
-// export default addTask;

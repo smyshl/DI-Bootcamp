@@ -1,7 +1,5 @@
 import { connect } from "react-redux";
 
-// import { useEffect } from "react";
-
 import TaskDelete from "./TaskDelete.jsx";
 import TaskComplete from "./TaskComplete.jsx";
 import TaskEdit from "./TaskEdit.jsx";
@@ -22,20 +20,10 @@ const filterByCompleted = (_tasks, _status) => {
 export function TaskList(props){
 
     let filteredTasks = [...props.tasks];
-    // console.log("filteredTasks init");
-
 
     if (props.filterByName !== '') filteredTasks = filterByName(filteredTasks, props.filterByName)
 
     if (props.filterByCompleted !== 'not') filteredTasks = filterByCompleted(filteredTasks, props.filterByCompleted)
-
-    
-
-// useEffect (() => {
-
-//     console.log("TaskList props=>", props);    
-//     console.log("TaskList filteredTasks Useffect=>", filteredTasks);
-// }, [props])
 
     return (
         <div id="taskListWrapper">
@@ -83,16 +71,3 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps)(TaskList);
-
-
-
-// const mapStateToProps = (state) => {
-//     console.log(state);
-    
-//     return {
-//         tasks: state.taskReducer.tasks,
-//     }
-// };
-
-
-// export default connect(mapStateToProps)(TaskList);

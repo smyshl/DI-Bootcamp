@@ -12,7 +12,6 @@ export function TaskCompleteFilter(props){
         if (value === 'false') value = false;        
 
         props.filterTaskByCompleted(value)
-        // console.log("from TaskCompleteFilter Component filterTasksByCompletedHandler radiobutton value:", value, typeof value);        
     };
 
     return (
